@@ -4,6 +4,8 @@
 
 This portfolio project demonstrates comprehensive Professional ML Engineering capabilities through an end-to-end implementation of a Fashion MNIST classification system. By deliberately choosing a well-understood dataset, the project focuses on showcasing enterprise-grade ML engineering practices across three paradigms: Localized, GCP-Native, and Cloud Agnostic implementations.
 
+![fashion_mnist](fashion_mnist.png)
+
 ## Project Objectives
 
 1. **Demonstrate GCP ML Ecosystem Mastery**: Showcase proficiency with Vertex AI, BigQuery, Cloud Storage, Dataflow, and other GCP services
