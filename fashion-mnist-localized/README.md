@@ -1,5 +1,9 @@
 # Fashion MNIST: Strictly Localized Development Approach
 
+![Architecture](./Diagram/fashion-mnist-architecture.svg)
+
+![Roadmap](./Diagram/fashion-mnist-roadmap.svg)
+
 ## Phase 1: Business Understanding & Problem Definition
 
 ### Implementation Details
@@ -12,8 +16,6 @@
 - Use Git for documentation version control
 - Structure: `docs/business/` directory
 - Format: Markdown, YAML, JSON files
-
-![Architecture](fashion-mnist-architecture.svg)
 
 ### Best Practices
 - Document SMART goals
