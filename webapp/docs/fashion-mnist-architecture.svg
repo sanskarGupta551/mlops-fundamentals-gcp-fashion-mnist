@@ -1,0 +1,151 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e293b">Fashion MNIST: Localized Development Architecture</text>
+  
+  <!-- Main Container -->
+  <rect x="50" y="80" width="1100" height="680" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Data Layer -->
+  <rect x="80" y="120" width="1040" height="120" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0369a1">Data Layer</text>
+  
+  <!-- Data Components -->
+  <rect x="100" y="170" width="140" height="50" rx="5" fill="#bae6fd" stroke="#0284c7"/>
+  <text x="170" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0c4a6e">Fashion MNIST</text>
+  
+  <rect x="260" y="170" width="140" height="50" rx="5" fill="#bae6fd" stroke="#0284c7"/>
+  <text x="330" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0c4a6e">Data Versioning</text>
+  
+  <rect x="420" y="170" width="140" height="50" rx="5" fill="#bae6fd" stroke="#0284c7"/>
+  <text x="490" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0c4a6e">Pandas Processing</text>
+  
+  <rect x="580" y="170" width="140" height="50" rx="5" fill="#bae6fd" stroke="#0284c7"/>
+  <text x="650" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0c4a6e">Data Validation</text>
+  
+  <!-- ML Development Layer -->
+  <rect x="80" y="260" width="1040" height="200" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="100" y="290" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#166534">ML Development Layer</text>
+  
+  <!-- ML Components -->
+  <rect x="100" y="310" width="140" height="50" rx="5" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="170" y="340" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#166534">Jupyter Notebooks</text>
+  
+  <rect x="260" y="310" width="140" height="50" rx="5" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="330" y="340" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#166534">TensorFlow/PyTorch</text>
+  
+  <rect x="420" y="310" width="140" height="50" rx="5" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="490" y="340" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#166534">MLflow Tracking</text>
+  
+  <rect x="580" y="310" width="140" height="50" rx="5" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="650" y="340" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#166534">Model Registry</text>
+  
+  <!-- Evaluation Components -->
+  <rect x="100" y="380" width="140" height="50" rx="5" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="170" y="410" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#166534">Metrics</text>
+  
+  <rect x="260" y="380" width="140" height="50" rx="5" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="330" y="410" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#166534">SHAP/LIME</text>
+  
+  <rect x="420" y="380" width="140" height="50" rx="5" fill="#bbf7d0" stroke="#15803d"/>
+  <text x="490" y="410" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#166534">Visualization</text>
+  
+  <!-- Deployment Layer -->
+  <rect x="80" y="480" width="1040" height="120" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="100" y="510" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#92400e">Deployment & Serving Layer</text>
+  
+  <!-- Deployment Components -->
+  <rect x="100" y="530" width="140" height="50" rx="5" fill="#fde68a" stroke="#b45309"/>
+  <text x="170" y="560" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#92400e">Flask API</text>
+  
+  <rect x="260" y="530" width="140" height="50" rx="5" fill="#fde68a" stroke="#b45309"/>
+  <text x="330" y="560" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#92400e">Docker Container</text>
+  
+  <rect x="420" y="530" width="140" height="50" rx="5" fill="#fde68a" stroke="#b45309"/>
+  <text x="490" y="560" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#92400e">Batch Inference</text>
+  
+  <rect x="580" y="530" width="140" height="50" rx="5" fill="#fde68a" stroke="#b45309"/>
+  <text x="650" y="560" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#92400e">API Documentation</text>
+  
+  <!-- MLOps & Monitoring Layer -->
+  <rect x="80" y="620" width="1040" height="120" rx="8" fill="#fae8ff" stroke="#c026d3" stroke-width="2"/>
+  <text x="100" y="650" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#86198f">MLOps & Monitoring</text>
+  
+  <!-- MLOps Components -->
+  <rect x="100" y="670" width="140" height="50" rx="5" fill="#f5d0fe" stroke="#a21caf"/>
+  <text x="170" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#86198f">Git Hooks</text>
+  
+  <rect x="260" y="670" width="140" height="50" rx="5" fill="#f5d0fe" stroke="#a21caf"/>
+  <text x="330" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#86198f">Shell Scripts</text>
+  
+  <rect x="420" y="670" width="140" height="50" rx="5" fill="#f5d0fe" stroke="#a21caf"/>
+  <text x="490" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#86198f">pytest</text>
+  
+  <rect x="580" y="670" width="140" height="50" rx="5" fill="#f5d0fe" stroke="#a21caf"/>
+  <text x="650" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#86198f">Evidently AI</text>
+  
+  <rect x="740" y="670" width="140" height="50" rx="5" fill="#f5d0fe" stroke="#a21caf"/>
+  <text x="810" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#86198f">Logging</text>
+  
+  <!-- Presentation Layer (Right Side) -->
+  <rect x="740" y="310" width="360" height="260" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+  <text x="760" y="340" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#334155">Presentation Layer</text>
+  
+  <!-- Presentation Components -->
+  <rect x="760" y="370" width="140" height="50" rx="5" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="830" y="400" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#334155">Streamlit Dashboard</text>
+  
+  <rect x="920" y="370" width="140" height="50" rx="5" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="990" y="400" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#334155">Documentation</text>
+  
+  <rect x="760" y="440" width="140" height="50" rx="5" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="830" y="470" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#334155">API Swagger</text>
+  
+  <rect x="920" y="440" width="140" height="50" rx="5" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="990" y="470" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#334155">Reports</text>
+  
+  <rect x="760" y="510" width="320" height="40" rx="5" fill="#e2e8f0" stroke="#64748b"/>
+  <text x="920" y="535" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#334155">Architecture Diagrams</text>
+  
+  <!-- Data Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+  
+  <!-- Vertical Flow Arrows -->
+  <line x1="170" y1="220" x2="170" y2="310" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="330" y1="220" x2="330" y2="310" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="490" y1="220" x2="490" y2="310" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="650" y1="220" x2="650" y2="310" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <line x1="170" y1="360" x2="170" y2="380" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="330" y1="360" x2="330" y2="380" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="490" y1="360" x2="490" y2="380" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <line x1="170" y1="430" x2="170" y2="530" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="330" y1="430" x2="330" y2="530" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="490" y1="430" x2="490" y2="530" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <line x1="170" y1="580" x2="170" y2="670" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="330" y1="580" x2="330" y2="670" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="490" y1="580" x2="490" y2="670" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="650" y1="580" x2="650" y2="670" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Horizontal Arrows to Presentation -->
+  <line x1="650" y1="335" x2="750" y2="395" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="650" y1="555" x2="750" y2="465" stroke="#6b7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Legend -->
+  <rect x="900" y="120" width="220" height="120" rx="5" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="920" y="145" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#334155">Legend</text>
+  <rect x="930" y="160" width="20" height="20" fill="#f0f9ff" stroke="#0ea5e9"/>
+  <text x="960" y="175" font-family="Arial, sans-serif" font-size="12" fill="#334155">Data Layer</text>
+  <rect x="930" y="190" width="20" height="20" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="960" y="205" font-family="Arial, sans-serif" font-size="12" fill="#334155">ML Development</text>
+  <rect x="930" y="220" width="20" height="20" fill="#fef3c7" stroke="#d97706"/>
+  <text x="960" y="235" font-family="Arial, sans-serif" font-size="12" fill="#334155">Deployment</text>
+</svg>

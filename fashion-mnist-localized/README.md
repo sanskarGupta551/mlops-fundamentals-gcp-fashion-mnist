@@ -13,6 +13,8 @@
 - Structure: `docs/business/` directory
 - Format: Markdown, YAML, JSON files
 
+![Architecture](./fashion-mnist-architecture.svg)
+
 ### Best Practices
 - Document SMART goals
 - Define clear KPIs
