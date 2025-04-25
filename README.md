@@ -4,7 +4,20 @@
 
 This portfolio project demonstrates comprehensive Professional ML Engineering capabilities through an end-to-end implementation of a Fashion MNIST classification system. By deliberately choosing a well-understood dataset, the project focuses on showcasing enterprise-grade ML engineering practices across three paradigms: Localized, GCP-Native, and Cloud Agnostic implementations.
 
-![fashion_mnist](fashion_mnist.png)
+![fashion-mnist](fashion-mnist.png)
+
+## Project Environment Structure
+
+### Implementation Approaches
+1. **Localized Development**: Local machine implementation with no GCP project environment
+2. **GCP-Native**: Dedicated GCP project (fashion-mnist-gcp)
+3. **Cloud Agnostic**: Separate GCP project for portable implementation (fashion-mnist-agnostic)
+
+### Project Infrastructure
+- **GitHub Repository**: All approaches will have their documentation, notebooks, and code in a unified GitHub repository
+- **Web Application**: fashion-mnist.cloudaiprojects.com served from dedicated GCP project (fashion-mnist-webapp)
+
+Each GCP environment is isolated to demonstrate proper multi-environment architecture, while the unified web application serves as a comprehensive portfolio demonstration of all approaches. The Localized approach runs entirely on local infrastructure, showcasing traditional ML workflows without cloud dependencies.
 
 ## Project Objectives
 
