@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1a73e8">Fashion MNIST: GCP-native Architecture</text>
+  
+  <!-- Data Layer -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="300" height="600" rx="10" fill="#e8f0fe" stroke="#4285f4" stroke-width="2"/>
+    <text x="150" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1a73e8">Data Layer</text>
+    
+    <!-- Cloud Storage -->
+    <rect x="30" y="60" width="240" height="60" rx="5" fill="#fff" stroke="#4285f4" stroke-width="1"/>
+    <text x="150" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Cloud Storage</text>
+    
+    <!-- Vertex AI Managed Datasets -->
+    <rect x="30" y="140" width="240" height="60" rx="5" fill="#fff" stroke="#4285f4" stroke-width="1"/>
+    <text x="150" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Vertex AI Managed Datasets</text>
+    
+    <!-- Feature Store -->
+    <rect x="30" y="220" width="240" height="60" rx="5" fill="#fff" stroke="#4285f4" stroke-width="1"/>
+    <text x="150" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Vertex AI Feature Store</text>
+  </g>
+  
+  <!-- Model Development Layer -->
+  <g transform="translate(400, 100)">
+    <rect x="0" y="0" width="350" height="300" rx="10" fill="#e6f4ea" stroke="#34a853" stroke-width="2"/>
+    <text x="175" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#137333">Model Development</text>
+    
+    <!-- Vertex AI Workbench -->
+    <rect x="30" y="60" width="140" height="60" rx="5" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="100" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Vertex AI</text>
+    <text x="100" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Workbench</text>
+    
+    <!-- AutoML Vision -->
+    <rect x="180" y="60" width="140" height="60" rx="5" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="250" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">AutoML</text>
+    <text x="250" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Vision</text>
+    
+    <!-- Vertex AI Training -->
+    <rect x="30" y="140" width="140" height="60" rx="5" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="100" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Vertex AI</text>
+    <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Training</text>
+    
+    <!-- Vertex AI Experiments -->
+    <rect x="180" y="140" width="140" height="60" rx="5" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="250" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Vertex AI</text>
+    <text x="250" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Experiments</text>
+    
+    <!-- Model Registry -->
+    <rect x="105" y="220" width="140" height="60" rx="5" fill="#fff" stroke="#34a853" stroke-width="1"/>
+    <text x="175" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Model</text>
+    <text x="175" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Registry</text>
+  </g>
+  
+  <!-- MLOps Layer -->
+  <g transform="translate(400, 450)">
+    <rect x="0" y="0" width="350" height="250" rx="10" fill="#fef7e0" stroke="#f9ab00" stroke-width="2"/>
+    <text x="175" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#b06000">MLOps & Automation</text>
+    
+    <!-- Cloud Build -->
+    <rect x="30" y="60" width="140" height="60" rx="5" fill="#fff" stroke="#f9ab00" stroke-width="1"/>
+    <text x="100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Cloud Build</text>
+    
+    <!-- Terraform -->
+    <rect x="180" y="60" width="140" height="60" rx="5" fill="#fff" stroke="#f9ab00" stroke-width="1"/>
+    <text x="250" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Terraform</text>
+    
+    <!-- GitHub -->
+    <rect x="30" y="140" width="140" height="60" rx="5" fill="#fff" stroke="#f9ab00" stroke-width="1"/>
+    <text x="100" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">GitHub</text>
+    
+    <!-- Artifact Registry -->
+    <rect x="180" y="140" width="140" height="60" rx="5" fill="#fff" stroke="#f9ab00" stroke-width="1"/>
+    <text x="250" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Artifact Registry</text>
+  </g>
+  
+  <!-- Production Layer -->
+  <g transform="translate(800, 100)">
+    <rect x="0" y="0" width="350" height="300" rx="10" fill="#fce8e6" stroke="#ea4335" stroke-width="2"/>
+    <text x="175" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#c5221f">Production Serving</text>
+    
+    <!-- Vertex AI Prediction -->
+    <rect x="30" y="60" width="290" height="60" rx="5" fill="#fff" stroke="#ea4335" stroke-width="1"/>
+    <text x="175" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Vertex AI Prediction Endpoints</text>
+    
+    <!-- Cloud Run -->
+    <rect x="30" y="140" width="140" height="60" rx="5" fill="#fff" stroke="#ea4335" stroke-width="1"/>
+    <text x="100" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Cloud Run</text>
+    
+    <!-- Cloud Endpoints -->
+    <rect x="180" y="140" width="140" height="60" rx="5" fill="#fff" stroke="#ea4335" stroke-width="1"/>
+    <text x="250" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Cloud Endpoints</text>
+    
+    <!-- Firestore -->
+    <rect x="105" y="220" width="140" height="60" rx="5" fill="#fff" stroke="#ea4335" stroke-width="1"/>
+    <text x="175" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Firestore</text>
+  </g>
+  
+  <!-- Monitoring Layer -->
+  <g transform="translate(800, 450)">
+    <rect x="0" y="0" width="350" height="250" rx="10" fill="#f3e8fd" stroke="#9334e6" stroke-width="2"/>
+    <text x="175" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#6200ea">Monitoring & Governance</text>
+    
+    <!-- Cloud Monitoring -->
+    <rect x="30" y="60" width="140" height="60" rx="5" fill="#fff" stroke="#9334e6" stroke-width="1"/>
+    <text x="100" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Cloud Monitoring</text>
+    
+    <!-- Cloud Logging -->
+    <rect x="180" y="60" width="140" height="60" rx="5" fill="#fff" stroke="#9334e6" stroke-width="1"/>
+    <text x="250" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Cloud Logging</text>
+    
+    <!-- Evidently AI -->
+    <rect x="30" y="140" width="140" height="60" rx="5" fill="#fff" stroke="#9334e6" stroke-width="1"/>
+    <text x="100" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Evidently AI</text>
+    
+    <!-- Model Cards -->
+    <rect x="180" y="140" width="140" height="60" rx="5" fill="#fff" stroke="#9334e6" stroke-width="1"/>
+    <text x="250" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">Model Cards</text>
+  </g>
+  
+  <!-- Arrows connecting layers -->
+  <!-- Data to Development -->
+  <path d="M350 250 L400 250" stroke="#4285f4" stroke-width="2" fill="none" marker-end="url(#arrowhead-blue)"/>
+  <path d="M350 350 L400 350" stroke="#4285f4" stroke-width="2" fill="none" marker-end="url(#arrowhead-blue)"/>
+  
+  <!-- Development to Production -->
+  <path d="M750 250 L800 250" stroke="#34a853" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  
+  <!-- MLOps to Development -->
+  <path d="M575 450 L575 400" stroke="#f9ab00" stroke-width="2" fill="none" marker-end="url(#arrowhead-yellow)"/>
+  
+  <!-- MLOps to Production -->
+  <path d="M750 575 L800 575" stroke="#f9ab00" stroke-width="2" fill="none" marker-end="url(#arrowhead-yellow)"/>
+  
+  <!-- Production to Monitoring -->
+  <path d="M975 400 L975 450" stroke="#ea4335" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  
+  <!-- Define arrow markers -->
+  <defs>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4285f4"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34a853"/>
+    </marker>
+    <marker id="arrowhead-yellow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f9ab00"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ea4335"/>
+    </marker>
+  </defs>
+</svg>

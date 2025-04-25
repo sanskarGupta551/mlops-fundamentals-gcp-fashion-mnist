@@ -11,6 +11,8 @@ The implementation showcases proficiency across the complete ML lifecycle, empha
 
 This GCP-native approach serves as part of a larger portfolio project demonstrating three implementation paradigms (Localized, GCP-Native, and Cloud Agnostic), highlighting technical versatility and professional ML engineering expertise.
 
+![architecture](./diagram/fashion-mnist-architecture.svg)
+
 ## Phase 1: Project Creation and Setup
 - Create GCP project and enable billing: **GCP Console, Cloud Billing**
 - Set up IAM roles and service accounts: **IAM, Service Accounts**
