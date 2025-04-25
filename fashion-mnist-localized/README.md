@@ -1,234 +1,202 @@
-# Fashion MNIST: Strictly Localized Development Approach
+# Fashion MNIST: Professional ML Engineer Local Development
 
-![Architecture](./diagram/localized-architecture.svg)
+## Overview
 
-![Roadmap](./diagram/localized-roadmap.svg)
+This project demonstrates enterprise-grade ML engineering practices in a local development environment, showcasing the complete ML lifecycle for the Fashion MNIST dataset without cloud dependencies.
 
-## Phase 1: Business Understanding & Problem Definition
+![architecture](./diagram/localized-architecture.svg)
+![roadmap](./diagram/localized-roadmap.svg)
 
-### Implementation Details
-- Create project charter in Markdown format
-- Document stakeholder requirements in YAML/JSON
-- Define success metrics in a metrics tracking file
-- Establish project timeline in Gantt chart format (local tools)
+## Phase 1: Data Engineering & Preparation
 
-### Technical Specifications
-- Use Git for documentation version control
-- Structure: `docs/business/` directory
-- Format: Markdown, YAML, JSON files
+### Data Storage & Versioning
+- **MinIO**: S3-compatible object storage for datasets
+- **DVC**: Version control for data and models
+- **PostgreSQL**: Metadata storage and feature store
+- **Redis**: Caching layer for frequently accessed data
 
-### Best Practices
-- Document SMART goals
-- Define clear KPIs
-- Regular review checkpoints
-- Stakeholder sign-off documentation
+### Data Processing Pipeline
+- **Apache Airflow**: Orchestrate ETL workflows and data pipelines
+- **Great Expectations**: Validate data quality and consistency
+- **Pandas/Dask**: Process and transform data (with large dataset support)
+- **FastAPI**: Build data access APIs for downstream consumption
 
-## Phase 2: Data Engineering & Preparation
+### Implementation Tasks
+1. Set up MinIO buckets for raw and processed data
+2. Configure DVC for tracking data versions
+3. Create Airflow DAGs for data ingestion and processing
+4. Implement data validation rules with Great Expectations
+5. Build feature engineering pipelines with Pandas/Dask
+6. Develop data access APIs with FastAPI
 
-### Implementation Details
-- Download Fashion MNIST to local filesystem
-- Implement data versioning with folder structure (data/v1, data/v2)
-- Create data validation scripts using pandas
-- Store metadata in JSON files
-- Develop data preprocessing pipelines
+## Phase 2: Model Development & Training
 
-### Technical Specifications
-- Storage: Local filesystem
-- Validation: pandas, numpy
-- Version control: Manual versioning or DVC
-- Directory structure: `data/raw/`, `data/processed/`
+### Experimentation Environment
+- **JupyterLab**: Interactive development and experimentation
+- **MLflow**: Experiment tracking and model versioning
+- **Optuna**: Hyperparameter optimization
+- **Docker**: Reproducible training environments
 
-### Best Practices
-- Implement data quality checks
-- Document data lineage
-- Version control datasets
-- Create data dictionaries
-- Maintain data catalog
+### Model Development Tools
+- **TensorFlow/PyTorch**: Deep learning frameworks
+- **scikit-learn**: Traditional ML algorithms
+- **Poetry/pip**: Dependency management
+- **Git**: Version control for code
 
-## Phase 3: Model Development & Training
+### Implementation Tasks
+1. Set up MLflow tracking server for experiments
+2. Create Jupyter notebooks for exploratory analysis
+3. Develop baseline models using scikit-learn
+4. Implement custom CNN architectures with TensorFlow/PyTorch
+5. Perform hyperparameter tuning using Optuna
+6. Register best models in MLflow Model Registry
 
-### Implementation Details
-- Use Jupyter notebooks for experimentation
-- Implement models with TensorFlow/PyTorch
-- Train on local CPU/GPU
-- Use MLflow for local experiment tracking
-- Store model artifacts locally
+## Phase 3: Model Evaluation & Validation
 
-### Technical Specifications
-- Environment: conda/venv
-- Frameworks: TensorFlow 2.x, PyTorch 1.x
-- Tracking: MLflow (local mode)
-- Storage: `models/` directory
+### Evaluation Framework
+- **MLflow**: Metrics tracking and model comparison
+- **Evidently AI**: Model performance analysis and drift detection
+- **SHAP/LIME**: Model explainability
+- **pytest**: Testing model functionality
 
-### Best Practices
-- Set random seeds for reproducibility
-- Document hyperparameters
-- Version control notebooks
-- Modular code structure
-- Comprehensive logging
+### Visualization Tools
+- **Grafana**: Performance dashboards
+- **Streamlit**: Interactive model analysis
+- **Matplotlib/Seaborn**: Static visualizations
+- **TensorBoard**: Training visualization
 
-## Phase 4: Model Evaluation & Validation
+### Implementation Tasks
+1. Implement comprehensive evaluation metrics in MLflow
+2. Create model explainability analysis with SHAP
+3. Build bias detection pipeline with Evidently AI
+4. Develop performance visualization dashboards
+5. Set up A/B testing framework for model comparison
+6. Create automated testing suite with pytest
 
-### Implementation Details
-- Implement evaluation metrics
-- Create visualization dashboards with matplotlib
-- Use SHAP/LIME for explainability
-- Perform bias testing
-- Generate performance reports
+## Phase 4: Deployment & Serving
 
-### Technical Specifications
-- Metrics: scikit-learn
-- Visualization: matplotlib, seaborn
-- Explainability: SHAP, LIME
-- Reports: Jupyter, Markdown
+### Serving Infrastructure
+- **FastAPI**: High-performance REST API
+- **Uvicorn**: ASGI server for FastAPI
+- **Docker**: Containerization for deployment
+- **Nginx**: Reverse proxy and load balancing
 
-### Best Practices
-- Cross-validation
-- Confusion matrices
-- ROC curves
-- Feature importance analysis
-- Bias detection
+### Deployment Tools
+- **Docker Compose**: Multi-container orchestration
+- **Redis**: Caching for model predictions
+- **PostgreSQL**: Store prediction logs
+- **GitHub Actions**: Deployment automation
 
-## Phase 5: Deployment & Serving
+### Implementation Tasks
+1. Create FastAPI endpoints for model serving
+2. Containerize model serving with Docker
+3. Set up Nginx as reverse proxy
+4. Implement Redis caching for predictions
+5. Configure batch inference pipeline
+6. Deploy multi-model serving infrastructure
 
-### Implementation Details
-- Create Flask/FastAPI endpoints
-- Containerize with Docker
-- Implement batch inference scripts
-- Set up local model registry
-- Create API documentation
+## Phase 5: Monitoring & Maintenance
 
-### Technical Specifications
-- API: Flask/FastAPI
-- Containerization: Docker
-- Registry: Local filesystem
-- Documentation: Swagger/OpenAPI
+### Monitoring Stack
+- **Prometheus**: Metrics collection
+- **Grafana**: Real-time monitoring dashboards
+- **Evidently AI**: Data and model drift detection
+- **Loki**: Log aggregation
 
-### Best Practices
-- API versioning
-- Health check endpoints
-- Error handling
-- Input validation
-- Rate limiting
+### Performance Tools
+- **Locust**: Load testing and performance benchmarking
+- **Python Logging**: Application logging
+- **Alert Manager**: Automated alerting
+- **Custom Scripts**: Health checks and diagnostics
 
-## Phase 6: Monitoring & Maintenance
+### Implementation Tasks
+1. Set up Prometheus metrics exporters
+2. Create Grafana dashboards for model performance
+3. Implement drift detection with Evidently AI
+4. Configure centralized logging with Loki
+5. Develop automated alerting for anomalies
+6. Create performance benchmarking suite with Locust
 
-### Implementation Details
-- Implement logging with Python logging module
-- Create performance monitoring scripts
-- Use Evidently AI for drift detection
-- Store metrics locally
-- Set up alert scripts
+## Phase 6: MLOps & Automation
 
-### Technical Specifications
-- Logging: Python logging
-- Monitoring: Custom scripts
-- Drift detection: Evidently AI
-- Storage: CSV/JSON files
+### CI/CD Pipeline
+- **GitHub Actions**: Workflow automation (with act for local testing)
+- **pre-commit**: Code quality checks
+- **Make**: Task automation
+- **Docker Compose**: Infrastructure as code
 
-### Best Practices
-- Log rotation
-- Metric collection
-- Drift thresholds
-- Alert conditions
-- Performance baselines
+### Testing & Quality
+- **pytest**: Unit and integration testing
+- **coverage**: Code coverage reporting
+- **black/isort**: Code formatting
+- **flake8/pylint**: Code linting
 
-## Phase 7: MLOps & Automation
+### Implementation Tasks
+1. Create GitHub Actions workflows for CI/CD
+2. Implement pre-commit hooks for code quality
+3. Develop automated testing pipeline
+4. Create Makefile for common tasks
+5. Set up infrastructure as code with Docker Compose
+6. Implement automated model retraining pipeline
 
-### Implementation Details
-- Use Git hooks for automation
-- Create shell scripts for pipeline automation
-- Implement local CI with GitHub Actions (self-hosted)
-- Use Docker Compose for local infrastructure
-- Automate testing with pytest
+## Phase 7: Presentation & Documentation
 
-### Technical Specifications
-- Version control: Git
-- Automation: Shell scripts, Make
-- Testing: pytest
-- Infrastructure: Docker Compose
-- Infrastructure: Docker Compose only
+### Documentation Tools
+- **MkDocs Material**: Project documentation
+- **Jupyter Book**: Technical reports and notebooks
+- **draw.io**: Architecture diagrams
+- **OpenAPI/Swagger**: API documentation
 
-### Best Practices
-- Automated testing
-- Code linting
-- Pre-commit hooks
-- Pipeline automation
-- Documentation generation
+### Interactive Dashboards
+- **Streamlit**: Model demo applications
+- **Grafana**: Operational dashboards
+- **Plotly/Dash**: Custom visualizations
+- **FastAPI**: Swagger UI for API exploration
 
-## Phase 8: Presentation & Documentation
+### Implementation Tasks
+1. Create comprehensive documentation with MkDocs
+2. Build interactive model demo with Streamlit
+3. Generate API documentation with Swagger
+4. Develop architecture diagrams with draw.io
+5. Create operational dashboards with Grafana
+6. Build custom visualization tools for stakeholders
 
-### Implementation Details
-- Create documentation with Markdown
-- Build dashboards with Streamlit
-- Generate API docs with Swagger
-- Create architecture diagrams
-- Develop presentation materials
+## Phase 8: Real-World Experimentation
 
-### Technical Specifications
-- Documentation: Markdown, MkDocs
-- Dashboards: Streamlit, Dash
-- Diagrams: Draw.io, PlantUML
-- Presentations: Local tools
+### Testing Framework
+- **Locust**: Load testing for production scenarios
+- **pytest**: Custom test scenarios
+- **Custom Scripts**: A/B testing implementation
+- **FastAPI**: Test data endpoints
 
-### Best Practices
-- README templates
-- Code comments
-- API documentation
-- Architecture diagrams
-- User guides
+### Validation Tools
+- **Evidently AI**: Real-world performance tracking
+- **MLflow**: Experiment comparison
+- **Grafana**: Results visualization
+- **Custom Reports**: Statistical analysis
 
-## Phase 9: Real-World Experimentation
-
-### Implementation Details
-- Create test datasets
-- Implement A/B testing framework
-- Develop performance benchmarking
-- Validate with real images
-- Document experiment results
-
-### Technical Specifications
-- Testing: Custom scripts
-- Benchmarking: Python tools
-- Validation: Manual processes
-- Results: JSON/CSV storage
-
-### Best Practices
-- Controlled experiments
-- Statistical validation
-- Result documentation
-- Performance comparison
-- Reproducible tests
-
-## Directory Structure
-```
-fashion-mnist-localized/
-├── data/                  # Dataset versions
-│   ├── raw/              # Original data
-│   └── processed/        # Processed data
-├── notebooks/            # Jupyter notebooks
-├── src/                  # Source code
-│   ├── data/            # Data processing
-│   ├── models/          # Model definitions
-│   ├── training/        # Training scripts
-│   └── serving/         # API code
-├── models/               # Trained models
-├── experiments/          # MLflow experiments
-├── logs/                 # Application logs
-├── tests/                # Test suites
-├── docs/                 # Documentation
-│   ├── business/        # Business docs
-│   └── technical/       # Technical docs
-├── deployment/           # Deployment configs
-│   └── docker/          # Docker files
-└── monitoring/           # Monitoring scripts
-```
+### Implementation Tasks
+1. Develop A/B testing framework
+2. Create load testing scenarios with Locust
+3. Implement real-image validation pipeline
+4. Build performance comparison dashboards
+5. Create statistical analysis reports
+6. Document experiment results and learnings
 
 ## Infrastructure Requirements
-- Local machine: 16GB+ RAM
-- Storage: 50GB+ SSD
-- Optional: NVIDIA GPU
-- Python 3.8+
-- Docker Desktop
 
-This organization provides a clear, phase-by-phase approach to implementing the Fashion MNIST project in a strictly localized environment while maintaining professional ML engineering standards.
+### Minimum Specifications
+- 16GB RAM
+- 4 CPU cores
+- 256GB SSD
+- Docker & Docker Compose
+
+### Recommended Specifications
+- 32GB RAM
+- 8 CPU cores
+- 512GB SSD
+- NVIDIA GPU (optional)
+
+## Getting Started
+
+The entire infrastructure can be started with a single Docker Compose command, demonstrating professional ML engineering practices on a single machine while maintaining enterprise-grade standards.
