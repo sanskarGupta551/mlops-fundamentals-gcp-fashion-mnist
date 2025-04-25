@@ -173,4 +173,8 @@
       <rect x="340" y="0" width="30" height="20" rx="3" fill="#f3f4f6" stroke="#9ca3af"/>
       <text x="380" y="15" font-family="sans-serif" font-size="14" fill="#334155">Not Started</text>
       
-      
+      <rect x="520" y="0" width="30" height="20" rx="3" fill="#fee2e2" stroke="#ef4444"/>
+      <text x="560" y="15" font-family="sans-serif" font-size="14" fill="#334155">Blocked</text>
+    </g>
+  </g>
+</svg>
