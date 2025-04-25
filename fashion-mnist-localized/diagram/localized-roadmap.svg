@@ -1,9 +1,12 @@
-<svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1200 550" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="1200" height="500" fill="#f8fafc"/>
+  <rect width="1200" height="550" fill="#f8fafc"/>
   
   <!-- Title -->
-  <text x="600" y="40" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e293b">Fashion MNIST: Development Implementation Roadmap</text>
+  <text x="600" y="40" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e293b">Fashion MNIST: Localized Development</text>
+  
+  <!-- Main Container -->
+  <rect x="50" y="70" width="1100" height="460" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
   
   <!-- Phase Headers -->
   <g transform="translate(80, 80)">

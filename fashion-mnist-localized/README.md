@@ -1,8 +1,8 @@
 # Fashion MNIST: Strictly Localized Development Approach
 
-![Architecture](./diagram/fashion-mnist-architecture.svg)
+![Architecture](./diagram/localized-architecture.svg)
 
-![Roadmap](./diagram/fashion-mnist-roadmap.svg)
+![Roadmap](./diagram/localized-roadmap.svg)
 
 ## Phase 1: Business Understanding & Problem Definition
 

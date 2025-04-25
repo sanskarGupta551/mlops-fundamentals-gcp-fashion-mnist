@@ -3,7 +3,7 @@
   <rect width="1200" height="800" fill="#f8fafc"/>
   
   <!-- Title -->
-  <text x="600" y="40" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e293b">Fashion MNIST: Localized Development Architecture</text>
+  <text x="600" y="40" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e293b">Fashion MNIST: Localized Architecture</text>
   
   <!-- Main Container -->
   <rect x="50" y="80" width="1100" height="680" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
