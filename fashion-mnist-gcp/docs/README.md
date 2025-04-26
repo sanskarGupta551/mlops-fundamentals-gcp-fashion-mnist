@@ -94,11 +94,16 @@ This GCP-native approach serves as part of a larger portfolio project demonstrat
 | Monitor real-world performance | Cloud Monitoring, Evidently AI | ⬜ |
 
 ## Key Implementation Principles
-1. **Right-sized Solutions**: Using appropriate services for the Fashion MNIST scale
-2. **Cost Optimization**: Leveraging preemptible VMs and auto-scaling appropriately
-3. **Security Best Practices**: Implementing IAM with least privilege principle
-4. **Iterative Automation**: Introducing automation when patterns emerge and value is clear
-5. **Monitoring & Governance**: Comprehensive observability and model documentation
+1. **Enterprise Architecture at Any Scale**: Demonstrating production-grade patterns that scale from Fashion MNIST to enterprise datasets
+2. **Cost Optimization**: Leveraging preemptible VMs and auto-scaling appropriately while monitoring costs
+3. **Security Best Practices**: Implementing IAM with least privilege principle and managing secrets securely
+4. **MLOps Automation**: Establishing CI/CD pipelines, infrastructure as code, and automated model deployment
+5. **Comprehensive Monitoring**: Implementing observability for model performance, drift detection, and resource usage
+6. **Model Governance**: Versioning models, tracking experiments, and maintaining model documentation
+7. **Feature Engineering**: Creating and storing reusable features in Vertex AI Feature Store
+8. **Infrastructure as Code**: Using Terraform for reproducible and maintainable infrastructure
+9. **Real-World Validation**: Testing the system with actual user interactions and collecting feedback
+10. **Documentation as Practice**: Maintaining API docs, architecture diagrams, and model cards throughout the lifecycle
 
 ## Service Summary
 - **Core ML Services**: Vertex AI suite (AutoML, Training, Experiments, Model Registry, Prediction, Feature Store)
