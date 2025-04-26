@@ -44,10 +44,7 @@ Phase 1 establishes the foundational infrastructure and project structure needed
 
 4. **Directory Organization**: Clear separation of concerns with dedicated folders for different asset types
 
-### Next Steps
-- Begin Phase 2: Data Engineering & Preparation
-- Create Vertex AI Workbench instance for development
-- Set up Cloud Storage bucket for data storage
+
 
 ### Status Summary
 | Task | Status |
