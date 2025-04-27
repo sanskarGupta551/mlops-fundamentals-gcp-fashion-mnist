@@ -157,3 +157,8 @@ Part 2 of Phase 2 completes the data engineering and preparation tasks, focusing
 | Dataset Preparation | ✅ |
 | Cloud Storage Organization | ✅ |
 | Documentation | ✅ |
+| Data Preprocessing Pipeline | ⬜ |
+| Vertex AI Feature Store Setup | ⬜ |
+| Preprocessing Validation | ⬜ |
+
+Phase 2 is in progress, with key infrastructure and initial data preparation completed. The next steps will focus on creating scalable, reproducible data transformation processes and feature management.
