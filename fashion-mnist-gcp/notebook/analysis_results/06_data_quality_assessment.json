@@ -1,0 +1,10 @@
+{
+    "outlier_count": 37,
+    "outlier_percentage": 0.06166666666666666,
+    "data_range": {
+        "min": 0.0,
+        "max": 255.0
+    },
+    "null_values": false,
+    "data_type": "uint8"
+}
