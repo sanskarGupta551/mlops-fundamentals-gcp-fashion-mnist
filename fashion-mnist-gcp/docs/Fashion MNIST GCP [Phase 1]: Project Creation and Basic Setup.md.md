@@ -1,4 +1,4 @@
-# Fashion MNIST GCP - Phase 1 Implementation
+# Fashion MNIST GCP [Phase 1]: Project Creation and Basic Setup
 
 ## Phase 1: Project Creation and Basic Setup
 
