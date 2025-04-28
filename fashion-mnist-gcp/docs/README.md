@@ -24,11 +24,13 @@ This GCP-native approach serves as part of a larger portfolio project demonstrat
 ### Phase 2: Data Engineering & Preparation
 | Task | Tool/Service | Status |
 |------|-------------|--------|
-| Store and organize Fashion MNIST images | Cloud Storage | ⬜ |
-| Explore and visualize image data | Vertex AI Workbench, Jupyter Notebooks | ⬜ |
-| Preprocess and normalize images | Cloud Functions | ⬜ |
-| Create managed datasets with train/val/test splits | Vertex AI Managed Datasets | ⬜ |
-| Engineer and store reusable features | Vertex AI Feature Store | ⬜ |
+| Ingest Raw Data for Vertex AI Datasets and Custom Jobs | Cloud Storage, TensorFlow | ✅ |
+| Create managed dataset using Vertex AI Datasets | Vertex AI Managed Datasets | ✅ |
+| In-depth Data Analysis on Raw Data | Vertex AI Workbench, Jupyter Notebooks | ✅ |
+| Validate Data Processing Techniques | Vertex AI Workbench, TensorFlow | ✅ |
+| Generate an on-the-fly Data Processing Pipeline | Python modules, Cloud Storage | ✅ |
+| Normalize and save Custom job Dataset | Cloud Storage, Python | ✅ |
+| Experiment with Feature Engineering | Vertex AI Feature Store, BigQuery | ✅ |
 
 ### Phase 3: Model Development & Training
 | Task | Tool/Service | Status |
