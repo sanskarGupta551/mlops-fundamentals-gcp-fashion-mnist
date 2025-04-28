@@ -3,86 +3,204 @@
 ## Phase 2: Data Engineering & Preparation
 
 ### Overview
-Part 3 of Phase 2 focuses on validating the data processing strategy for the Fashion MNIST dataset. This phase tested the normalization and augmentation approaches that will be implemented in the GCP environment, ensuring that our preprocessing pipeline is effective before moving to model development.
+Part 3 of Phase 2 completes the data engineering and preparation tasks by implementing a systematic data processing workflow. The implementation follows a two-stage approach: first validating strategies in interactive Jupyter notebooks, then transforming validated methods into a production-ready Python module. This phase also establishes Vertex AI Feature Store as a centralized repository for engineered features, ensuring consistency between training and serving environments.
 
 ### Completed Tasks
 
-#### 1. Data Preprocessing Strategy Validation
-- Tested and validated preprocessing approach:
-  - Normalization: Applied Min-Max [0,1] normalization to all data splits
-  - Split strategy: Preserved original train/test split (60,000/10,000) with additional validation split from training data (20%)
-  - Augmentation: Implemented on-the-fly augmentation for training data only
-- Validated preprocessing stages with visual inspection
-- Confirmed effectiveness of strategy in local notebook environment
+#### 1. Detailed Data Preprocessing Strategy in Notebooks
 
-#### 2. Data Augmentation Implementation
-- Implemented enhanced augmentation strategy with multiple transformations:
-  - Rotation: Random rotations in range ±15°
-  - Brightness: Adjustments between 0.8-1.2× original
-  - Contrast: Modifications with factors between 0.7-1.3
-  - Horizontal flips: Applied with 50% probability
-  - Shifts: Random pixel shifts within image boundaries
-  - Zoom: Scaling between 0.9-1.1× original size
-- Established random application of transformations to maximize diversity
-- Verified augmentation effectiveness through visual inspection across multiple classes (T-shirt/top, Trouser, Dress, Bag)
+The notebook-based processing validation included:
 
-#### 3. Processing Pipeline Design
-- Created data generator approach for efficient training:
-  - On-the-fly augmentation during batch generation
-  - Memory-efficient processing of training data
-  - Consistent normalization across all data splits
-- Designed processing pattern for training/validation/test splits
-- Confirmed data integrity through visual inspection
-- Determined optimal batch generation approach for training
+- **Dataset Loading and Initial Exploration**:
+  - Leveraged TensorFlow's built-in `fashion_mnist.load_data()` to access the dataset
+  - Examined shape characteristics (60,000 training samples, 10,000 test samples)
+  - Analyzed data type (uint8) and value range [0-255]
+  - Visualized sample images to understand dataset quality and characteristics
 
-### Key Findings
+- **Data Splitting Implementation**:
+  - Utilized `sklearn.model_selection.train_test_split` for reproducible splits
+  - Applied stratified sampling to maintain class distribution
+  - Created 80/20 train/validation split from the original training data
+  - Verified class balance across all splits with distribution counts
+  - Preserved the original test set for final evaluation
 
-1. **Preprocessing Strategy Validation**:
-   - Normalization in [0,1] range confirmed as optimal for neural network training
-   - Data augmentation visibly increases diversity of training examples
-   - 80/20 train/validation split provides sufficient validation data while maintaining robust training set
+- **Normalization Process**:
+  - Applied Min-Max [0,1] normalization by converting to float32 and dividing by 255
+  - Verified normalization effectiveness by examining value ranges
+  - Confirmed visual quality of normalized images through side-by-side comparisons
+  - Selected normalization approach based on performance with neural networks
 
-2. **Augmentation Effectiveness**:
-   - Multiple augmentation techniques successfully create diverse variations
-   - Augmentation parameters (rotation range, brightness factors, etc.) preserve core class characteristics
-   - Horizontal flips appropriate for most Fashion MNIST classes
-   - Transformations create meaningful variation without distorting essential features
+- **Augmentation Strategy Development**:
+  - Implemented a comprehensive `augment_image` function with multiple transformations:
+    - Horizontal flipping (50% probability)
+    - Random rotation (±15° with 60% probability)
+    - Brightness adjustments (0.8-1.2× factor with 70% probability)
+    - Contrast modifications (0.7-1.3× factor with 60% probability)
+    - Pixel shifting (±2-3 pixels with 50% probability)
+    - Zoom transformations (0.9-1.1× with 40% probability)
+  - Calibrated probabilities to ensure diverse yet recognizable augmentations
+  - Visualized augmented outputs across multiple image classes
+  - Fine-tuned transformation parameters based on visual inspection
 
-3. **Neural Network Feature Learning**:
-   - Determined that manual feature engineering (HOG, statistical moments) unlikely to provide significant benefits
-   - Modern CNN architectures can effectively learn optimal features directly from normalized pixel data
-   - Simple normalization provides sufficient preprocessing for neural network training
-   - Focus should remain on effective data augmentation rather than complex feature engineering
+- **Mini-Batch Generation Validation**:
+  - Created an efficient batch generator with optional augmentation
+  - Implemented shuffle mechanism for training data randomization
+  - Compared augmented vs. non-augmented batches visually
+  - Verified consistent label association after augmentation
+  - Tested batch generator performance with different batch sizes
 
-### Implementation Details
+- **End-to-End Pipeline Validation**:
+  - Created a complete workflow from raw data to augmented batches
+  - Verified data shape consistency throughout the pipeline
+  - Conducted systematic visual inspections at each processing stage
+  - Confirmed batch generator functionality with both training and validation data
+  - Established time and memory benchmarks for pipeline operations
 
-#### Data Processing Framework
+#### 2. Production-Ready Python Module Development
 
-The validated data processing strategy includes:
+The notebook-validated processes were transformed into a robust, modular Python script with:
 
-- **Normalization Process**: Consistent normalization to [0,1] range applied to all data splits (training, validation, and test)
+- **Object-Oriented Architecture**:
+  - `FashionMNISTDataset` class encapsulating dataset management:
+    - Constructor parameters for validation split ratio, random seed, and normalization toggle
+    - Internal methods for dataset loading and normalization
+    - Properties providing access to processed data splits
+    - NPZ serialization capability for storing processed data
+  
+  - `ImageAugmenter` class for configurable image transformations:
+    - Fully parameterized initialization for all augmentation parameters
+    - Optimized augmentation pipeline with probabilistic transformation application
+    - Efficient implementation of geometric and pixel-value transformations
+    - Random seed support for reproducible augmentation
 
-- **Augmentation Strategy**: Comprehensive set of image transformations applied only to training data, including:
-  - Random rotations with configurable angle range
-  - Brightness and contrast adjustments
-  - Horizontal flips
-  - Random pixel shifts
-  - Zoom effects for scale variation
+  - `DataGenerator` class implementing Python's iterator protocol:
+    - Support for both training (with augmentation) and validation (without augmentation) workflows
+    - Memory-efficient batch generation
+    - Shuffle capability with reproducible random states
+    - Support for both finite iteration and infinite generation
 
-- **Batch Generation**: Implemented efficient mini-batch generation with:
-  - On-the-fly augmentation
-  - Randomized batch composition
-  - Memory-efficient processing
+- **Production Optimizations**:
+  - Removed visualization and analytics code from production module
+  - Added comprehensive error handling and logging
+  - Streamlined data loading process for efficiency
+  - Optimized memory usage during batch generation
+  - Improved numerical stability in transformation calculations
+  - Fixed edge cases in zoom transformation implementation
 
-#### Training Integration Approach
+- **Integration-Friendly Design**:
+  - Utility functions `load_fashion_mnist_dataset`, `create_train_generator`, and `create_val_generator` for simplified usage
+  - Clear documentation for integration with training scripts
+  - Consistent parameter naming conventions
+  - Flexible configuration options for different training scenarios
+  - Self-contained implementation requiring minimal dependencies
 
-The strategy for integrating preprocessing with model training includes:
+#### 3. Feature Store Implementation Details
 
-- Consistent normalization applied to all data splits before training begins
-- Augmentation applied only during training and only to training data
-- Validation and testing performed on normalized but non-augmented data
-- Batch-based processing to enable training on large datasets
-- New augmented variations generated for each epoch to maximize diversity
+The Vertex AI Feature Store implementation included:
+
+- **Feature Extraction Pipeline**:
+  - Created statistical features capturing pixel intensity distributions
+  - Implemented edge detection algorithms to extract structural information
+  - Applied Principal Component Analysis (PCA) for dimensionality reduction
+  - Generated histogram features representing brightness distributions
+  - Created metadata features for class information and split designation
+
+- **BigQuery Infrastructure Setup**:
+  - Established `fashion_mnist_features` dataset in BigQuery
+  - Created two main tables with appropriate schemas:
+    - `image_features`: Numerical features extracted from images
+    - `metadata_features`: Class labels and identifiers
+  - Implemented timestamp-based versioning columns
+  - Established entity ID as the primary join key
+
+- **Feature Group Configuration**:
+  - Registered feature definitions in Vertex AI Feature Registry
+  - Created two feature groups with appropriate schemas:
+    - `exp_image_features`: Image-derived numerical features
+    - `exp_metadata_features`: Class information and metadata
+  - Established entity definitions with image_id as primary key
+  - Configured online serving options for inference access
+
+- **Feature Quality Validation**:
+  - Verified feature values against source images
+  - Confirmed entity ID consistency across feature groups
+  - Validated feature retrieval through API calls
+  - Tested batch and online serving capabilities
+
+### Technical Implementation Details
+
+#### Data Processing Workflow
+
+The data processing implementation follows a systematic workflow:
+
+1. **Raw Data Acquisition**:
+   - Import Fashion MNIST through TensorFlow's datasets API
+   - Original 28×28 pixel grayscale images with values [0-255]
+   - Training (60,000 samples) and test (10,000 samples) splits
+   - Ten balanced classes with 6,000 training samples per class
+
+2. **Preprocessing Pipeline**:
+   - Stratified train/validation split (80/20) from original training data
+   - Type conversion from uint8 to float32 for numerical stability
+   - Min-Max normalization to scale pixel values to [0,1] range
+   - Verification of data shapes and value ranges
+
+3. **Augmentation System**:
+   - Multiple transformation types with configurable parameters
+   - Probabilistic application to ensure diverse outputs
+   - Geometric transformations: rotation, flipping, shifting, zooming
+   - Pixel-value transformations: brightness, contrast adjustments
+   - Preservation of image dimensions after transformations
+
+4. **Batch Generation Process**:
+   - Configurable batch size for different hardware capabilities
+   - Random shuffling of training data with reproducible seeds
+   - Just-in-time augmentation applied only to training data
+   - Memory-efficient iterator implementation
+   - Support for both epoch-based and infinite generation
+
+5. **Feature Management**:
+   - Extraction of statistical, structural, and distribution features
+   - Storage in BigQuery with appropriate schema design
+   - Registration in Vertex AI Feature Registry with entity definitions
+   - Version control through timestamp-based tracking
+   - Flexible access mechanisms for both training and serving
+
+### Integration with Training Workflow
+
+The production module enables seamless integration with model training through:
+
+```python
+# Example workflow (not included in production module)
+from data import FashionMNISTDataset, create_train_generator, create_val_generator
+
+# Load dataset with preprocessing
+dataset = FashionMNISTDataset(val_split=0.2, random_state=42, normalize=True)
+
+# Create training generator with augmentation
+train_generator = create_train_generator(
+    dataset.X_train, dataset.y_train, 
+    batch_size=32, 
+    augment=True, 
+    random_state=42
+)
+
+# Create validation generator without augmentation
+val_generator = create_val_generator(
+    dataset.X_val, dataset.y_val, 
+    batch_size=32, 
+    random_state=42
+)
+
+# Example of integration with TensorFlow/Keras training
+model.fit(
+    train_generator.generate(),
+    steps_per_epoch=len(train_generator),
+    validation_data=val_generator.generate(),
+    validation_steps=len(val_generator),
+    epochs=10
+)
+```
 
 ### Status Summary
 | Task | Status |
@@ -104,8 +222,33 @@ The strategy for integrating preprocessing with model training includes:
 | Documentation | ✅ |
 | Data Preprocessing Pipeline | ✅ |
 | Data Augmentation Strategy | ✅ |
-| Preprocessing Validation | ✅ |
-| Vertex AI Feature Store Setup | ⬜ |
-| Pipeline Automation | ⬜ |
+| Notebook-Based Preprocessing Validation | ✅ |
+| Feature Engineering | ✅ |
+| BigQuery Feature Tables | ✅ |
+| Vertex AI Feature Store Implementation | ✅ |
+| Production Module Development | ✅ |
+| Training Integration Testing | ✅ |
 
-Phase 2 is now partially complete with the data processing strategy validated and ready for implementation in the GCP environment. The next steps will include implementing the preprocessing pipeline in Vertex AI and proceeding to Phase 3: Model Development & Training.
+Phase 2 is now complete with the successful implementation of data processing strategies, feature engineering, Vertex AI Feature Store, and production-ready data processing modules. The project is ready to proceed to Phase 3: Model Development & Training with a solid data foundation that ensures consistency, reproducibility, and performance through both Feature Store capabilities and modular processing components.
+
+### Key Benefits of Implemented Approach
+
+1. **Notebook-to-Production Pathway**:
+   - Interactive experimentation and validation in notebooks
+   - Clear transition to production-grade code
+   - Maintained consistency between development and production
+   - Documented decisions and rationale through notebook annotations
+
+2. **Feature Store Advantages**:
+   - Centralized feature management reducing redundancy
+   - Clear versioning enabling reproducible model development
+   - Separation of concerns between feature engineering and model training
+   - Consistent feature access across training and serving
+
+3. **Modular Component Design**:
+   - Separation of dataset handling, augmentation, and batch generation
+   - Flexible configuration for different use cases
+   - Clear interfaces enabling integration with various training frameworks
+   - Maintainable codebase with well-defined responsibilities
+
+This comprehensive data engineering foundation will enable efficient model development in the next phase while ensuring consistent evaluation and reproducible results.
