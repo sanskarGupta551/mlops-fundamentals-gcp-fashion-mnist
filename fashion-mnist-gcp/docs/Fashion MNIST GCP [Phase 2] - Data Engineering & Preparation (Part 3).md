@@ -94,7 +94,21 @@ The notebook-validated processes were transformed into a robust, modular Python 
   - Flexible configuration options for different training scenarios
   - Self-contained implementation requiring minimal dependencies
 
-#### 3. Feature Store Implementation Details
+#### 3. Data Normalization Process for Training
+
+To support subsequent model training phases, an additional data preparation task was implemented:
+
+- **Cloud-Based Normalized Dataset Generation**:
+  - Created a dedicated normalizer script to process raw dataset files
+  - Implemented a systematic workflow to convert uint8 [0-255] images to float32 [0-1] range
+  - Preserved original training/validation/test splits during normalization
+  - Generated normalized dataset in NPZ format for efficient loading in training jobs
+  - Implemented comprehensive logging for process transparency
+  - Created detailed documentation of normalized dataset structure and usage patterns
+  - Successfully processed and saved normalized dataset to `custom_jobs_normalized` directory
+  - Verified data integrity and normalization consistency across all splits
+
+#### 4. Feature Store Implementation Details
 
 The Vertex AI Feature Store implementation included:
 
@@ -228,6 +242,7 @@ model.fit(
 | Vertex AI Feature Store Implementation | ✅ |
 | Production Module Development | ✅ |
 | Training Integration Testing | ✅ |
+| Normalized Dataset Generation | ✅ |
 
 Phase 2 is now complete with the successful implementation of data processing strategies, feature engineering, Vertex AI Feature Store, and production-ready data processing modules. The project is ready to proceed to Phase 3: Model Development & Training with a solid data foundation that ensures consistency, reproducibility, and performance through both Feature Store capabilities and modular processing components.
 
@@ -250,5 +265,11 @@ Phase 2 is now complete with the successful implementation of data processing st
    - Flexible configuration for different use cases
    - Clear interfaces enabling integration with various training frameworks
    - Maintainable codebase with well-defined responsibilities
+
+4. **Production-Ready Data Assets**:
+   - Multiple data formats supporting different training approaches
+   - Normalized datasets ready for immediate model consumption
+   - Comprehensive documentation for each data asset
+   - Verified data quality across all preparation stages
 
 This comprehensive data engineering foundation will enable efficient model development in the next phase while ensuring consistent evaluation and reproducible results.
