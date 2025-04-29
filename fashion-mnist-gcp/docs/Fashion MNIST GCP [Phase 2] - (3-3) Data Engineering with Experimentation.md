@@ -1,9 +1,7 @@
-# Fashion MNIST GCP [Phase 2]: Data Engineering & Preparation (Part 3)
-
-## Phase 2: Data Engineering & Preparation
+# Fashion MNIST GCP [Phase 2]: (3/3) Data Engineering with Experimentation
 
 ### Overview
-Part 3 of Phase 2 completes the data engineering and preparation tasks by implementing a systematic data processing workflow. The implementation follows a two-stage approach: first validating strategies in interactive Jupyter notebooks, then transforming validated methods into a production-ready Python module. This phase also establishes Vertex AI Feature Store as a centralized repository for engineered features, ensuring consistency between training and serving environments.
+This document details the enterprise-grade data engineering implementation that bridges experimental exploration and production deployment. It demonstrates a methodical approach that begins with interactive experimentation in Jupyter notebooks to validate preprocessing strategies, followed by transformation into robust, production-ready Python modules with comprehensive error handling and optimizations. The implementation incorporates Vertex AI Feature Store to provide consistent feature access across training and serving environments while establishing a sophisticated data augmentation system that enhances model generalization capabilities. This experimental-to-production pathway creates a solid foundation that ensures reproducibility, performance, and maintainability throughout the model development lifecycle.
 
 ### Completed Tasks
 
@@ -94,21 +92,7 @@ The notebook-validated processes were transformed into a robust, modular Python 
   - Flexible configuration options for different training scenarios
   - Self-contained implementation requiring minimal dependencies
 
-#### 3. Data Normalization Process for Training
-
-To support subsequent model training phases, an additional data preparation task was implemented:
-
-- **Cloud-Based Normalized Dataset Generation**:
-  - Created a dedicated normalizer script to process raw dataset files
-  - Implemented a systematic workflow to convert uint8 [0-255] images to float32 [0-1] range
-  - Preserved original training/validation/test splits during normalization
-  - Generated normalized dataset in NPZ format for efficient loading in training jobs
-  - Implemented comprehensive logging for process transparency
-  - Created detailed documentation of normalized dataset structure and usage patterns
-  - Successfully processed and saved normalized dataset to `custom_jobs_normalized` directory
-  - Verified data integrity and normalization consistency across all splits
-
-#### 4. Feature Store Implementation Details
+#### 3. Feature Store Implementation Details
 
 The Vertex AI Feature Store implementation included:
 
@@ -140,6 +124,20 @@ The Vertex AI Feature Store implementation included:
   - Confirmed entity ID consistency across feature groups
   - Validated feature retrieval through API calls
   - Tested batch and online serving capabilities
+
+#### 4. Data Normalization Process for Training
+
+To support subsequent model training phases, an additional data preparation task was implemented:
+
+- **Cloud-Based Normalized Dataset Generation**:
+  - Created a dedicated normalizer script to process raw dataset files
+  - Implemented a systematic workflow to convert uint8 [0-255] images to float32 [0-1] range
+  - Preserved original training/validation/test splits during normalization
+  - Generated normalized dataset in NPZ format for efficient loading in training jobs
+  - Implemented comprehensive logging for process transparency
+  - Created detailed documentation of normalized dataset structure and usage patterns
+  - Successfully processed and saved normalized dataset to `custom_jobs_normalized` directory
+  - Verified data integrity and normalization consistency across all splits
 
 ### Technical Implementation Details
 

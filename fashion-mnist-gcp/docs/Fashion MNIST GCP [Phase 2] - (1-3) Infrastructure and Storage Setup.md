@@ -1,9 +1,7 @@
-# Fashion MNIST GCP [Phase 2]: Data Engineering & Preparation (Part 1)
-
-## Phase 2: Data Engineering & Preparation
+# Fashion MNIST GCP [Phase 2]: (1/3) Infrastructure and Storage Setup
 
 ### Overview
-Phase 2 focuses on implementing robust data engineering practices and preparing the Fashion MNIST dataset for machine learning workflows. Part 1 covers infrastructure setup, dataset ingestion, and initial organization.
+This document outlines the foundational infrastructure implementation for the Fashion MNIST project on Google Cloud Platform. It establishes the secure, scalable compute and storage architecture necessary for machine learning workflows. The implementation includes a production-grade Vertex AI Workbench environment, properly secured service accounts with appropriate IAM permissions, and a strategically designed Cloud Storage architecture that separates development, datasets, and model artifacts for optimal organization and access control.
 
 ### Completed Tasks
 
