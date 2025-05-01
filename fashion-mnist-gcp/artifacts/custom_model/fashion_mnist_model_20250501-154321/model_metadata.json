@@ -1,0 +1,39 @@
+{
+  "model_name": "Fashion MNIST CNN",
+  "version": "20250501-154321",
+  "architecture": "CNN with BatchNorm",
+  "input_shape": [
+    28,
+    28,
+    1
+  ],
+  "classes": [
+    "T-shirt/top",
+    "Trouser",
+    "Pullover",
+    "Dress",
+    "Coat",
+    "Sandal",
+    "Shirt",
+    "Sneaker",
+    "Bag",
+    "Ankle Boot"
+  ],
+  "performance": {
+    "accuracy": 0.45570001006126404,
+    "loss": 98.66283416748047
+  },
+  "training_details": {
+    "optimizer": "Adam with gradient clipping",
+    "epochs_trained": 46,
+    "batch_size": 32,
+    "data_augmentation": true
+  },
+  "inference_performance": {
+    "batch_size": 32,
+    "runs": 100,
+    "avg_batch_time_ms": 52.57110118865967,
+    "avg_image_time_ms": 1.6428469121456146,
+    "images_per_second": 608.6994427825083
+  }
+}

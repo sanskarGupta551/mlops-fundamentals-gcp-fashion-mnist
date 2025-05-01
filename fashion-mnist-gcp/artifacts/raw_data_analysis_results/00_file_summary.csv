@@ -1,0 +1,27 @@
+Filename,Type,Size (KB)
+01_class_distribution.png,PNG,175.21
+01_dataset_overview.json,JSON,0.66
+02_class_brightness_distribution.png,PNG,218.85
+02_pixel_intensity_distribution.png,PNG,64.75
+02_statistical_analysis.json,JSON,1.94
+03_average_class_images.png,PNG,99.74
+03_class_samples.png,PNG,250.63
+03_edge_detection_analysis.png,PNG,71.16
+04_dimensionality_analysis.json,JSON,1.55
+04_pca_explained_variance.png,PNG,121.63
+04_tsne_visualization.png,PNG,2058.52
+05_class_relationships.json,JSON,4.7
+05_class_similarity_matrix.png,PNG,353.38
+06_data_quality_assessment.json,JSON,0.19
+06_potential_outliers.png,PNG,93.5
+07_augmentation_examples.png,PNG,75.36
+07_normalization_comparison.png,PNG,99.13
+07_preprocessing_insights.json,JSON,0.34
+08_classification_difficulty_prediction.png,PNG,141.67
+08_performance_predictions.json,JSON,2.79
+09_comparative_analysis.json,JSON,0.83
+09_complexity_comparison.png,PNG,122.74
+09_mnist_comparison.png,PNG,43.36
+10_executive_summary.json,JSON,0.73
+10_executive_summary_visualization.png,PNG,419.59
+11_analysis_dashboard.png,PNG,735.41

@@ -1,0 +1,106 @@
+{
+    "class_difficulty_ranking": [
+        {
+            "class": "Bag",
+            "variance": 5172.825329602086,
+            "most_similar_to": "Coat",
+            "similarity_score": 0.893702170965541
+        },
+        {
+            "class": "Shirt",
+            "variance": 4048.119441872449,
+            "most_similar_to": "Coat",
+            "similarity_score": 0.9873675369049932
+        },
+        {
+            "class": "Pullover",
+            "variance": 3979.4215018448517,
+            "most_similar_to": "Coat",
+            "similarity_score": 0.984068994952652
+        },
+        {
+            "class": "Coat",
+            "variance": 3533.008325384282,
+            "most_similar_to": "Shirt",
+            "similarity_score": 0.9873675369049932
+        },
+        {
+            "class": "T-shirt/top",
+            "variance": 3417.2527842239947,
+            "most_similar_to": "Shirt",
+            "similarity_score": 0.9488640945566634
+        },
+        {
+            "class": "Ankle boot",
+            "variance": 3450.241392466665,
+            "most_similar_to": "Sandal",
+            "similarity_score": 0.9269153860982207
+        },
+        {
+            "class": "Sandal",
+            "variance": 3320.2765480511957,
+            "most_similar_to": "Ankle boot",
+            "similarity_score": 0.9269153860982207
+        },
+        {
+            "class": "Dress",
+            "variance": 2960.681016800524,
+            "most_similar_to": "Trouser",
+            "similarity_score": 0.9247941420867971
+        },
+        {
+            "class": "Trouser",
+            "variance": 2134.994350413154,
+            "most_similar_to": "Dress",
+            "similarity_score": 0.9247941420867971
+        },
+        {
+            "class": "Sneaker",
+            "variance": 2090.2928863942007,
+            "most_similar_to": "Sandal",
+            "similarity_score": 0.9131624191801601
+        }
+    ],
+    "expected_confusion_pairs": [
+        {
+            "pair": [
+                "Bag",
+                "Coat"
+            ],
+            "similarity": 0.893702170965541
+        },
+        {
+            "pair": [
+                "Shirt",
+                "Coat"
+            ],
+            "similarity": 0.9873675369049932
+        },
+        {
+            "pair": [
+                "Pullover",
+                "Coat"
+            ],
+            "similarity": 0.984068994952652
+        },
+        {
+            "pair": [
+                "Coat",
+                "Shirt"
+            ],
+            "similarity": 0.9873675369049932
+        },
+        {
+            "pair": [
+                "T-shirt/top",
+                "Shirt"
+            ],
+            "similarity": 0.9488640945566634
+        }
+    ],
+    "estimated_accuracy_range": {
+        "simple_model": "85-90%",
+        "complex_model": "92-95%",
+        "ensemble": "94-97%"
+    }
+}
