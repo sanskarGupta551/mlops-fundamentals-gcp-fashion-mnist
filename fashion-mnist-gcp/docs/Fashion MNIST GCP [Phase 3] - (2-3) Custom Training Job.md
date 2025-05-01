@@ -181,6 +181,29 @@ The locally trained model achieved:
    - Centralized artifact storage enables workflow flexibility
    - Clear separation of training and serving concerns facilitates maintenance
 
+### Recent Developments and Model Deployment
+
+Following our local training of the Fashion MNIST model, we have successfully:
+
+1. **Exported the model** to SavedModel format and stored it in Google Cloud Storage at `gs://fashion-mnist-model/custom_model/`
+
+2. **Registered the model** in Vertex AI Model Registry with the following configuration:
+   - Framework: TensorFlow 2.12
+   - Runtime: Optimized TensorFlow with TFRT for CPU
+   - Accelerator: None (CPU-only for initial deployment)
+
+3. **Selected appropriate optimization flags**:
+   - Enabled optimized TensorFlow runtime for better performance
+   - Enabled TFRT for CPU models which efficiently uses TensorFlow operations
+   - Did not enable model compression to maintain full model accuracy
+
+4. **Created custom model version**:
+   - Model name: fashion-mnist-custom-model
+   - Provides the same interface as our original AutoML model
+   - Available for online or batch predictions
+
+This deployment approach demonstrates adaptability in the face of infrastructure limitations and showcases professional ML engineering practices for model deployment in a cloud environment.
+
 ### Status Summary
 | Task | Status |
 |------|--------|
@@ -195,4 +218,4 @@ The locally trained model achieved:
 | Model Upload to GCS | ✅ |
 | Model Registry | ✅ |
 
-Phase 3 (Part 2) is now complete with the successful implementation of a containerized training architecture for the Fashion MNIST classification model. While the execution environment was adapted due to quota constraints, all architectural components and implementation patterns follow professional ML engineering practices. The project is ready to proceed to the next steps of model deployment and serving.
+Phase 3 (Part 2) is now complete with the successful implementation of a containerized training architecture for the Fashion MNIST classification model and model deployment in Vertex AI. While the execution environment was adapted due to quota constraints, all architectural components and implementation patterns follow professional ML engineering practices. The project is ready to proceed to the next steps of model evaluation and comprehensive monitoring.
