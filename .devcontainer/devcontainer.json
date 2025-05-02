@@ -1,11 +1,11 @@
 {
 	// For quick reference: https://containers.dev/implementors/json_reference/
-	"name": "Tensorflow GPU",
-	"image": "nvcr.io/nvidia/tensorflow:23.07-tf2-py3",
-	//"build": {
-	//	"context": "..",
-	//	"dockerfile": "Dockerfile"
-	//},
+	"name": "Tensorflow GPU Custom",
+	//"image": "nvcr.io/nvidia/tensorflow:23.07-tf2-py3",
+	"build": {
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
 
 	// 1. Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": []

@@ -1,0 +1,18 @@
+FROM tensorflow/tensorflow:latest-gpu
+
+# Install additional system dependencies if needed
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set up environment variables
+ENV PYTHONPATH=/workspaces/Fashion_MNIST
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Configure the conda environment
+RUN pip install --upgrade pip
+
+# Set working directory - VS Code will mount your project here
+WORKDIR /workspaces/Fashion_MNIST
