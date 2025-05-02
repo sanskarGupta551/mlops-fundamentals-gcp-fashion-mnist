@@ -40,8 +40,10 @@ The `train.py` script implements a professional ML engineering structure with th
 
 - **Enhanced Model Architecture**:
   - Maintained the three-layer CNN with increasing filter counts (32→64→128)
-  - Preserved dropout regularization (25% for conv layers, 50% for dense layer)
-  - Kept Adam optimizer with learning rate scheduling
+  - Implemented BatchNormalization after each convolutional and dense layer
+  - Used dropout regularization (25% for conv layers, 50% for dense layer)
+  - Dense layer with 512 units (rather than 128 as initially planned)
+  - Adam optimizer with learning rate scheduling, gradient clipping, and weight decay
   - Maintained callback structure with improvements for cloud environments
 
 - **Cloud Integration Components**:
@@ -123,7 +125,8 @@ This approach demonstrates the flexibility and problem-solving skills essential 
 - Successfully transferred the enhanced CNN architecture from notebook to script:
   - Three-layer CNN with increasing filters (32→64→128)
   - Strategic dropout placement (25% after convolutions, 50% before output)
-  - Adam optimizer with 0.001 learning rate and reduction scheduling
+  - Adam optimizer with gradient clipping (clipnorm=1.0) and weight decay (1e-5)
+  - Learning rate starting at 0.001 with reduction scheduling
 
 - Maintained all data augmentation parameters:
   - 15° rotation range
@@ -159,10 +162,13 @@ This approach demonstrates the flexibility and problem-solving skills essential 
 ### Model Performance Results
 
 The locally trained model achieved:
-- Training accuracy: 93.2%
-- Validation accuracy: 91.7% 
-- Test accuracy: 91.3%
-- Training time: 17 minutes (on local CPU)
+- Training accuracy: ~83%
+- Validation accuracy: ~88% 
+- Test accuracy: 45.57%
+- Loss: 98.66
+- Training time: 46 epochs (with early stopping)
+
+The significant disparity between validation and test accuracy (88% vs 45.57%) indicates a substantial generalization problem. Analysis of the confusion matrix shows certain class-specific issues, particularly with the model misclassifying many items as "Pullover".
 
 ### Key Learnings
 
@@ -180,6 +186,11 @@ The locally trained model achieved:
    - Container-based deployments provide consistency across environments
    - Centralized artifact storage enables workflow flexibility
    - Clear separation of training and serving concerns facilitates maintenance
+
+4. **Model Generalization Challenges**:
+   - Strong performance on validation data doesn't guarantee test set performance
+   - Class imbalance and class confusion require additional attention
+   - Regular monitoring of model performance across different datasets is essential
 
 ### Recent Developments and Model Deployment
 
@@ -218,4 +229,4 @@ This deployment approach demonstrates adaptability in the face of infrastructure
 | Model Upload to GCS | ✅ |
 | Model Registry | ✅ |
 
-Phase 3 (Part 2) is now complete with the successful implementation of a containerized training architecture for the Fashion MNIST classification model and model deployment in Vertex AI. While the execution environment was adapted due to quota constraints, all architectural components and implementation patterns follow professional ML engineering practices. The project is ready to proceed to the next steps of model evaluation and comprehensive monitoring.
+Phase 3 (Part 2) is now complete with the successful implementation of a containerized training architecture for the Fashion MNIST classification model and model deployment in Vertex AI. While the execution environment was adapted due to quota constraints, all architectural components and implementation patterns follow professional ML engineering practices. The project is ready to proceed to the next steps of model evaluation and comprehensive monitoring, with a focus on addressing the generalization issues identified in this phase.

@@ -20,7 +20,7 @@ Conv2D (128 filters, 3×3 kernel, ReLU) → BatchNorm → MaxPooling (2×2) → 
 ↓
 Flatten
 ↓
-Dense (128 units, ReLU) → BatchNorm → Dropout (0.5)
+Dense (512 units, ReLU) → BatchNorm → Dropout (0.5)
 ↓
 Dense (10 units, Softmax)
 ```
@@ -55,6 +55,11 @@ Dense (10 units, Softmax)
    - Additional layers would risk overfitting on this dataset size
    - Final architecture balances expressivity with generalization
 
+6. **Larger Dense Layer (512 units)**
+   - Increased from originally planned 128 units to 512 units
+   - Provides greater capacity for feature combination and abstraction
+   - Higher parameter count in dense layer requires stronger regularization (50% dropout)
+
 ## 2. Hyperparameter Selection
 
 ### Training Hyperparameters
@@ -62,9 +67,10 @@ Dense (10 units, Softmax)
 | Parameter | Value | Rationale |
 |-----------|-------|-----------|
 | Batch Size | 32 | Provides stable gradient estimates while fitting in memory constraints |
-| Learning Rate | 0.001 | Standard starting point for Adam optimizer |
+| Initial Learning Rate | 0.001 | Standard starting point for Adam optimizer |
+| Final Learning Rate | 0.000001 | Decayed over training to fine-tune weights |
 | Epochs | 50 (max) | Sufficient for convergence with early stopping |
-| Optimizer | Adam | Adaptive learning rates handle varying gradient magnitudes |
+| Optimizer | Adam with clipnorm=1.0 and weight_decay=1e-5 | Adaptive learning rates with stability enhancements |
 | Loss Function | Categorical Cross-Entropy | Appropriate for multi-class classification |
 
 ### Learning Rate Strategy
@@ -83,6 +89,16 @@ Dense (10 units, Softmax)
 - **Monitor**: validation_loss
 - **Restore Best Weights**: True
 - **Rationale**: Prevents overfitting while ensuring sufficient opportunity for convergence
+- **Actual Training Duration**: 46 epochs before early stopping triggered
+
+### Gradient Stabilization
+
+- **Gradient Clipping**: clipnorm=1.0
+  - Prevents exploding gradients by limiting L2 norm
+  - Improves training stability especially with higher learning rates
+- **Weight Decay**: 1e-5
+  - Provides additional regularization
+  - Helps prevent overfitting by penalizing large weights
 
 ### Data Augmentation Parameters
 
@@ -126,8 +142,8 @@ Vertex AI Model Registry
 Custom metadata attached to models:
 
 1. **Performance Metrics**:
-   - Accuracy (training, validation, test)
-   - F1-score (weighted, per class)
+   - Accuracy (training ~83%, validation ~88%, test 45.57%)
+   - Loss (98.66 on test set)
    - Confusion matrix reference
    - Inference latency
 
@@ -135,7 +151,7 @@ Custom metadata attached to models:
    - Dataset version used
    - Training environment (local vs. cloud)
    - Creation timestamp
-   - Training duration
+   - Training duration (46 epochs)
 
 3. **Implementation Details**:
    - Framework version
@@ -147,6 +163,7 @@ Custom metadata attached to models:
    - `stage:dev` or `stage:prod`
    - `approved:yes` or `approved:no`
    - `deployment:eligible` or `deployment:ineligible`
+   - `performance:needs_improvement` (added to flag generalization issues)
 
 ### Model Artifact Organization
 
@@ -163,7 +180,8 @@ gs://fashion-mnist-model/
     │       ├── model_card.md
     │       ├── metrics.json
     │       ├── params.json
-    │       └── confusion_matrix.png
+    │       ├── confusion_matrix.png
+    │       └── class_performance.json
     └── [future versions]
 ```
 
@@ -178,12 +196,46 @@ gs://fashion-mnist-model/
    - Models shareable across GCP projects via IAM
    - Enables separation of development and production environments
 
-## 4. Lessons Learned & Best Practices
+## 4. Performance Analysis
+
+### Class-specific Performance
+
+The model exhibits significant performance variations across classes:
+
+| Class | Precision | Recall | F1-Score | Common Misclassifications |
+|-------|-----------|--------|----------|---------------------------|
+| T-shirt/top | 0.68 | 0.77 | 0.72 | Pullover (20.6%) |
+| Trouser | 1.00 | 0.69 | 0.82 | Pullover (30.8%) |
+| Pullover | 0.23 | 0.98 | 0.37 | (Commonly predicted class) |
+| Dress | 0.93 | 0.17 | 0.29 | Pullover (64.4%) |
+| Coat | 0.48 | 0.06 | 0.10 | Pullover (91.2%) |
+| Sandal | 1.00 | 0.12 | 0.21 | Bag (48.4%), Boot (27.4%) |
+| Shirt | 0.41 | 0.07 | 0.13 | Pullover (65.1%) |
+| Sneaker | 0.00 | 0.00 | 0.00 | Bag (50.5%), Boot (26.1%) |
+| Bag | 0.45 | 0.88 | 0.60 | (Generally well-classified) |
+| Ankle Boot | 0.60 | 0.80 | 0.68 | (Generally well-classified) |
+
+### Generalization Gap Analysis
+
+The significant disparity between validation accuracy (~88%) and test accuracy (45.57%) indicates a critical generalization issue. This represents an important case study in ML engineering challenges:
+
+1. **Class Confusion Patterns**:
+   - The model shows a strong bias toward classifying items as "Pullover"
+   - Upper-body garments (Coat, Shirt, Dress) are frequently misclassified as Pullover
+   - Footwear (Sneaker, Sandal) shows confusion with Bag and Ankle Boot
+
+2. **Potential Causes**:
+   - Data distribution differences between validation and test sets
+   - Possible overfitting to validation data despite regularization efforts
+   - Feature extraction limitations in the current architecture
+   - Need for specialized attention to challenging class relationships
+
+## 5. Lessons Learned & Best Practices
 
 ### Technical Insights
 
 1. **AutoML vs. Custom Tradeoffs**:
-   - AutoML provided stronger out-of-box performance (97.2% vs 91.3%)
+   - AutoML provided stronger out-of-box performance (97.2% vs 45.57%)
    - Custom model offers greater architectural control and interpretability
    - AutoML development time was 80% less than custom implementation
    - Custom approach provided valuable learning opportunities and flexibility
@@ -199,6 +251,12 @@ gs://fashion-mnist-model/
    - Service account management requires careful planning
    - GCS path conventions need standardization for consistency
    - Container optimization significantly impacts training performance
+
+4. **Generalization Challenges**:
+   - Strong performance on validation data doesn't guarantee test performance
+   - Regular evaluation on diverse test sets is critical
+   - Class confusion matrices provide crucial insights beyond aggregate metrics
+   - Need for targeted class-specific improvement strategies
 
 ### Best Practices Identified
 
@@ -226,6 +284,12 @@ gs://fashion-mnist-model/
    - Use preemptible instances for development and experimentation
    - Match instance type to workload characteristics
 
+5. **Performance Evaluation**:
+   - Always analyze per-class metrics beyond aggregate accuracy
+   - Use confusion matrices to identify class relationships
+   - Compare validation and test performance to detect generalization issues
+   - Document both successes and failures for future improvement
+
 ### Recommendations for Future Implementation
 
 1. **Architecture Improvements**:
@@ -249,8 +313,18 @@ gs://fashion-mnist-model/
    - Consider Bayesian optimization approaches for efficient tuning
    - Implement warm-starting for accelerated tuning
 
+4. **Generalization Improvements**:
+   - Implement class-specific data augmentation strategies
+   - Explore ensemble methods to reduce class bias
+   - Consider architectural modifications for commonly confused classes
+   - Investigate potential data leakage between training and validation sets
+
 ## Conclusion
 
-The Phase 3 implementation successfully established both AutoML and custom model approaches for Fashion MNIST classification. The architectural decisions, hyperparameter selections, and implementation strategies demonstrate professional ML engineering practices that balance model performance with production considerations. While quota limitations presented challenges, the flexible implementation approach showcased problem-solving skills essential for real-world ML projects. The established model registry and documented learnings provide a solid foundation for subsequent phases of the project, including evaluation, deployment, and monitoring.
+The Phase 3 implementation successfully established both AutoML and custom model approaches for Fashion MNIST classification. The architectural decisions, hyperparameter selections, and implementation strategies demonstrate professional ML engineering practices that balance model performance with production considerations. 
+
+While the custom model achieved strong validation performance (~88%), its significantly lower test accuracy (45.57%) highlights a critical generalization challenge. This disparity represents a valuable learning opportunity and demonstrates the importance of thorough evaluation across multiple data splits.
+
+Despite quota limitations and performance challenges, the implementation showcases problem-solving skills essential for real-world ML projects. The established model registry and documented learnings provide a solid foundation for subsequent phases of the project, including evaluation, deployment, and monitoring, with a particular focus on addressing the identified generalization challenges.
 
 This custom training implementation completes the model development phase of the project, setting the stage for comprehensive model evaluation and deployment in the following phases. The infrastructure and registry patterns established here will enable effective MLOps practices throughout the model lifecycle.
