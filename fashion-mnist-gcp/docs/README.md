@@ -35,12 +35,13 @@ This GCP-native approach serves as part of a larger portfolio project demonstrat
 ### Phase 3: Model Development & Training
 | Task | Tool/Service | Status |
 |------|-------------|--------|
-| Train baseline model with AutoML | Vertex AI AutoML Vision | ⬜ |
-| Develop custom CNN models | Vertex AI Workbench, TensorFlow/PyTorch | ⬜ |
-| Execute distributed training jobs | Vertex AI Training | ⬜ |
-| Track experiments and parameters | Vertex AI Experiments | ⬜ |
-| Version and store models | Vertex AI Model Registry | ⬜ |
-| Document model architecture and decisions | Model Cards, Cloud Storage | ⬜ |
+| Vertex AI AutoML Job (Baseline Model) | Vertex AI AutoML Vision | ✅ |
+| Vertex AI Custom Job | Vertex AI Training | ❌ (Quota limitations) |
+| Custom Job using Local Docker Container | Docker, TensorFlow-GPU | ✅ |
+| Version and store models | Vertex AI Model Registry | ✅ |
+| Track experiments and parameters | Vertex AI Experiments | ✅ |
+| Document model architecture and decisions | Model Cards, Cloud Storage | ✅ |
+| Technical Assessment and Personal Reflections |  | ✅ |
 
 ### Phase 4: Model Evaluation & Validation
 | Task | Tool/Service | Status |
