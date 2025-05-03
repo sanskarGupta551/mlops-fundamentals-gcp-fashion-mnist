@@ -1,4 +1,4 @@
-# Fashion MNIST: Professional ML Engineer Portfolio Project [Updated Overview]
+# Fashion MNIST: Professional ML Engineer Portfolio Project [Overview]
 
 ## Project Executive Summary
 
