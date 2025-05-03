@@ -1,23 +1,20 @@
-# Fashion MNIST: Professional ML Engineer Portfolio Project [Overview]
+# Fashion MNIST: Professional ML Engineer Portfolio Project [Updated Overview]
 
 ## Project Executive Summary
 
-This portfolio project demonstrates comprehensive Professional ML Engineering capabilities through an end-to-end implementation of a Fashion MNIST classification system. By deliberately choosing a well-understood dataset, the project focuses on showcasing enterprise-grade ML engineering practices across three paradigms: Localized, GCP-Native, and Cloud Agnostic implementations.
+This portfolio project demonstrates comprehensive Professional ML Engineering capabilities through an end-to-end implementation of a Fashion MNIST classification system. By deliberately choosing a well-understood dataset, the project focuses on showcasing enterprise-grade ML engineering practices using the GCP-native implementation paradigm, emphasizing production-ready architecture, MLOps excellence, and innovative AI-powered documentation.
 
 ![fashion-mnist](./diagram/fashion_mnist.png)
 
 ## Project Environment Structure
 
-### Implementation Approaches
-1. **Localized Development**: Local machine implementation with no GCP project environment
-2. **GCP-Native**: Dedicated GCP project (fashion-mnist-gcp)
-3. **Cloud Agnostic**: Separate GCP project for portable implementation (fashion-mnist-agnostic)
+### Implementation Approach
+**GCP-Native Development**: Dedicated GCP project (fashion-mnist-gcp) leveraging Google Cloud's managed services for ML
 
 ### Project Infrastructure
-- **GitHub Repository**: All approaches will have their documentation, notebooks, and code in a unified GitHub repository
+- **GitHub Repository**: All code, documentation, and configuration in a unified GitHub repository
 - **Web Application**: fashion-mnist.cloudaiprojects.com served from dedicated GCP project (fashion-mnist-webapp)
-
-Each GCP environment is isolated to demonstrate proper multi-environment architecture, while the unified web application serves as a comprehensive portfolio demonstration of all approaches. The Localized approach runs entirely on local infrastructure, showcasing traditional ML workflows without cloud dependencies.
+- **Documentation System**: Intelligent documentation powered by Vertex AI Agent Builder
 
 ## Project Objectives
 
@@ -25,7 +22,7 @@ Each GCP environment is isolated to demonstrate proper multi-environment archite
 2. **Exhibit MLOps Best Practices**: Implement CI/CD, monitoring, automated retraining, and infrastructure as code
 3. **Show Enterprise-Ready Solutions**: Address security, compliance, cost optimization, and scalability
 4. **Prove End-to-End Ownership**: Cover the complete ML lifecycle from business understanding to production monitoring
-5. **Display Technical Versatility**: Implement solutions using multiple approaches (Localized, GCP-Native, and Cloud Agnostic)
+5. **Demonstrate AI-Enhanced Documentation**: Implement an intelligent documentation system using GenAI capabilities
 
 ## Why Fashion MNIST?
 
@@ -36,10 +33,10 @@ Each GCP environment is isolated to demonstrate proper multi-environment archite
 
 ## Key Technical Highlights
 
-### 1. Multi-Environment Implementation
-- **Localized Development**: Traditional ML workflow for baseline
-- **GCP-Native**: Full utilization of managed services
-- **Cloud Agnostic**: Portable solutions using cloud-agnostic tools
+### 1. GCP-Native Implementation
+- **Managed Services**: Full utilization of Google Cloud's ML ecosystem
+- **Vertex AI Integration**: AutoML, custom training, and model registry
+- **Cloud-Native Architecture**: Microservices, event-driven processing, and serverless components
 
 ### 2. Production-Grade Architecture
 - **Scalable Design**: Architecture that scales from Fashion MNIST to enterprise datasets
@@ -48,8 +45,8 @@ Each GCP environment is isolated to demonstrate proper multi-environment archite
 
 ### 3. Advanced ML Features
 - **AutoML Benchmarking**: Baseline performance metrics
-- **Custom Models**: CNN, Vision Transformers, Ensemble methods
-- **Model Explainability**: SHAP, LIME integration
+- **Custom Models**: CNN implementations with proper regularization
+- **Model Explainability**: Feature importance and visualization
 - **A/B Testing**: Production-ready experimentation framework
 
 ### 4. Enterprise Considerations
@@ -58,17 +55,22 @@ Each GCP environment is isolated to demonstrate proper multi-environment archite
 - **Documentation**: Comprehensive technical and business docs
 - **Testing**: Unit, integration, and system testing
 
+### 5. Intelligent Documentation System
+- **AI-Powered Knowledge Base**: RAG-based system for project exploration
+- **Conversational Interface**: Natural language interaction with project documentation
+- **Contextual Understanding**: Connection between components and implementation details
+- **Security Awareness**: Sensitive data filtering and access controls
+
 ## Project Phases
 
-1. **Business Understanding & Problem Definition**: Define goals, stakeholders, and success metrics
+1. **Project Setup & Infrastructure**: Define goals, establish basic infrastructure and monitoring
 2. **Data Engineering & Preparation**: Implement data pipelines and validation
-3. **Model Development & Training**: Create baseline and custom models
-4. **Model Evaluation & Validation**: Test performance, bias, and explainability
-5. **Deployment & Serving**: Deploy batch and online inference systems
-6. **Monitoring & Maintenance**: Implement drift detection and alerting
-7. **MLOps & Automation**: Establish CI/CD and infrastructure as code
-8. **Presentation & Documentation**: Create dashboards and documentation
-9. **Real-World Experimentation**: Validate with real-world data
+3. **Model Development & Training**: Create baseline and custom models with experiment tracking
+4. **Model Deployment & Serving**: Deploy models with production-ready serving infrastructure
+5. **Interactive Web Application**: Build user-facing application for demonstration
+6. **MLOps & Continuous Delivery**: Establish CI/CD and production automation
+7. **Advanced MLOps Capabilities**: Implement sophisticated monitoring, testing, and optimization
+8. **Intelligent Documentation System**: Create AI-powered system for project exploration
 
 ## Technical Stack
 
@@ -81,28 +83,26 @@ Each GCP environment is isolated to demonstrate proper multi-environment archite
 - Cloud Run (Custom Serving)
 
 ### MLOps Tools
-- Terraform (Infrastructure as Code)
-- MLflow (Experiment Tracking)
-- Kubeflow (Pipeline Orchestration)
-- GitHub Actions (Automation)
+- GitHub Actions (CI/CD, Automation)
 - Docker (Containerization)
+- Terraform (Infrastructure as Code)
+- Cloud Monitoring (Observability)
 
-### Monitoring & Visualization
-- Looker (Business Intelligence)
-- Cloud Monitoring (Infrastructure)
-- Evidently AI (Model Monitoring)
-- Grafana (Custom Dashboards)
+### Web & Documentation
+- Cloud Storage (Static Web Hosting)
+- Cloud Run (API Serving)
+- Vertex AI Agent Builder (Intelligent Documentation)
+- Vertex AI Vector Search (Knowledge Base)
 
 ## Deliverables
 
 1. **Production ML System**: Fully deployed Fashion MNIST classifier
-2. **Infrastructure as Code**: Complete Terraform configurations
+2. **Web Application**: Interactive demonstration interface
 3. **MLOps Pipeline**: Automated training and deployment
 4. **Documentation Suite**: Architecture, API, and user guides
-5. **Monitoring Dashboard**: Looker-based analytics
+5. **Monitoring Dashboard**: Cloud Monitoring-based analytics
 6. **Cost Analysis**: Detailed optimization report
-7. **Technical Blog**: Project learnings and insights
-8. **Demo Video**: System walkthrough
+7. **AI Documentation Agent**: Intelligent project exploration interface
 
 ## Success Metrics
 
@@ -121,35 +121,35 @@ Each GCP environment is isolated to demonstrate proper multi-environment archite
 
 ## Project Timeline
 
-- **Phase 1-2**: 1-2 weeks (Foundation)
-- **Phase 3-4**: 2-3 weeks (Model Development)
-- **Phase 5-7**: 2-3 weeks (Deployment & MLOps)
-- **Phase 8-9**: 1-2 weeks (Presentation & Validation)
+- **Phase 1-3**: Completed (Data Engineering, Model Development)
+- **Phase 4-5**: 1-2 weeks (Deployment & Web Application)
+- **Phase 6-7**: 2-3 weeks (MLOps & Advanced Capabilities)
+- **Phase 8**: 1-2 weeks (Intelligent Documentation System)
 
 ## Unique Value Proposition
 
 This project stands out by:
-1. Demonstrating complete ML lifecycle ownership
-2. Showing proficiency across multiple implementation approaches
-3. Focusing on enterprise-grade practices over algorithmic complexity
-4. Providing comprehensive documentation and visualization
-5. Including real-world testing with actual fashion images
+1. Demonstrating complete ML lifecycle ownership in GCP
+2. Focusing on enterprise-grade practices over algorithmic complexity
+3. Providing comprehensive documentation and visualization
+4. Including real-world testing with actual fashion images
+5. Featuring an innovative AI-powered documentation system
 
 ## Repository Structure
 
 ```
-fashion-mnist/
+fashion-mnist-gcp/
 ├── infrastructure/          # Terraform configurations
-├── pipelines/              # ML pipelines and workflows
-├── services/               # Microservices code
-├── models/                 # Model training and evaluation
-├── monitoring/             # Monitoring and logging setup
-├── tests/                  # Testing suites
-├── docs/                   # Documentation
-├── dashboards/             # Looker and visualization
-└── experiments/            # Real-world experiments
+├── pipelines/               # ML pipelines and workflows
+├── services/                # Microservices code
+├── models/                  # Model training and evaluation
+├── monitoring/              # Monitoring and logging setup
+├── tests/                   # Testing suites
+├── docs/                    # Documentation
+├── web-interface/           # User-facing components
+└── agent/                   # AI Agent implementation
 ```
 
 ## Conclusion
 
-This Fashion MNIST project serves as a comprehensive demonstration of Professional ML Engineering capabilities, showcasing not just technical skills but also business acumen, architectural thinking, and operational excellence required for enterprise ML systems across Localized, GCP-Native, and Cloud Agnostic implementations.
+This Fashion MNIST project serves as a comprehensive demonstration of Professional ML Engineering capabilities, showcasing not just technical skills but also business acumen, architectural thinking, and operational excellence required for enterprise ML systems. The GCP-native implementation leverages Google Cloud's managed services to create a scalable, reliable system, while the innovative AI-powered documentation system demonstrates cutting-edge capabilities in knowledge management and exploration.
