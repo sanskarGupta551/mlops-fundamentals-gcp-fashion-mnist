@@ -4,7 +4,7 @@
 
 This portfolio project demonstrates comprehensive Professional ML Engineering capabilities through an end-to-end implementation of a Fashion MNIST classification system. By deliberately choosing a well-understood dataset, the project focuses on showcasing enterprise-grade ML engineering practices across three paradigms: Localized, GCP-Native, and Cloud Agnostic implementations.
 
-![fashion-mnist](fashion-mnist.png)
+![fashion-mnist](./diagram/fashion-mnist.png)
 
 ## Project Environment Structure
 
