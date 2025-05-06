@@ -35,15 +35,18 @@ This document details the completion of Phase 4 implementation, focusing on esta
 - Established proper logging and notification steps
 
 #### Service Account Configuration
-- Created dedicated service account: `prediction-service-cicd@fashion-mnist-gcp.iam.gserviceaccount.com`
-- Implemented least-privilege IAM permissions:
-  - Cloud Run Admin
-  - Cloud Build Service Account
-  - Container Registry Service Agent
-  - Service Account User
-- Configured appropriate resource access boundaries
-- Applied proper authentication and authorization mechanisms
-- Implemented security best practices for service account management
+- Created dedicated **CI/CD Service Account**:
+  - Name: `prediction-service-cicd`
+  - Email: prediction-service-cicd@fashion-mnist-gcp.iam.gserviceaccount.com
+  - Implemented least-privilege IAM permissions:
+    - Cloud Run Admin
+    - Cloud Build Service Account
+    - Container Registry Service Agent
+    - Service Account User
+    - Storage Object Admin
+    - Secret Manager Secret Accessor
+    - Monitoring Admin
+    - Cloud Build Editor
 
 ### 2. Monitoring and Alerting Infrastructure
 
@@ -112,6 +115,15 @@ This document details the completion of Phase 4 implementation, focusing on esta
 - Created onboarding guides for new team members
 - Implemented change management documentation
 
+#### Monitoring Service Account
+- Created dedicated **Monitoring Service Account**:
+  - Name: `monitoring-sa`
+  - Email: monitoring-sa@fashion-mnist-gcp.iam.gserviceaccount.com
+  - Assigned roles:
+    - Monitoring Admin
+    - Logging Admin
+    - Error Reporting Admin
+
 ## Key Technical Decisions
 
 ### 1. CI/CD Strategy Selection
@@ -141,38 +153,3 @@ This document details the completion of Phase 4 implementation, focusing on esta
   - Implemented multi-level alerting for different severity conditions
   - Established proper notification routing for efficient response
   - Created alert documentation for consistent handling
-
-### 3. Architecture Documentation
-
-- **Diagram Creation**:
-  - Selected appropriate level of detail for clear understanding
-  - Implemented consistent visual language for component types
-  - Created separate views for different stakeholder concerns
-  - Designed for both technical and business understanding
-
-- **Documentation Structure**:
-  - Organized by component type and responsibility
-  - Implemented clear naming conventions for artifacts
-  - Established proper version control for documentation updates
-  - Created links between related documentation elements
-
-## Status Summary
-| Task | Status |
-|------|--------|
-| GitHub Integration | ✅ |
-| Cloud Build Trigger Configuration | ✅ |
-| Build Configuration File Creation | ✅ |
-| Service Account Configuration | ✅ |
-| End-to-End CI/CD Testing | ✅ |
-| Dashboard Creation | ✅ |
-| Alert Configuration | ✅ |
-| Uptime Check Implementation | ✅ |
-| Log-Based Monitoring | ✅ |
-| Architecture Documentation | ✅ |
-| Process Documentation | ✅ |
-
-Phase 4 is now complete with the successful implementation of CI/CD, monitoring, and comprehensive documentation. This establishes a solid foundation for continuous delivery and operational excellence in the Fashion MNIST project, enabling reliable production operations and systematic improvements.
-
-## Next Steps
-
-The completion of Phase 4 provides a robust operational foundation for the Fashion MNIST project. The next phase (Phase 5) will focus on developing the Interactive Web Application, leveraging the deployment infrastructure established here to provide a user-friendly interface for interacting with the prediction service.

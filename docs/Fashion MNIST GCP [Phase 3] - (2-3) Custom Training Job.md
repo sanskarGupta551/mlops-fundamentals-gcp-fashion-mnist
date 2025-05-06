@@ -280,6 +280,29 @@ Following our local training of the Fashion MNIST model, we have successfully:
 
 This deployment approach demonstrates adaptability in the face of infrastructure limitations and showcases professional ML engineering practices for model deployment in a cloud environment with comprehensive experiment tracking.
 
+### Service Account Configuration
+
+- Created dedicated **Model Training Service Account**:
+  - Name: `model-training-sa`
+  - Email: model-training-sa@fashion-mnist-gcp.iam.gserviceaccount.com
+  - Assigned roles:
+    - Vertex AI User
+    - Storage Object Admin
+    - Vertex AI Experiments Editor
+    - Artifact Registry Writer
+    - Log Writer
+    - Monitoring Metric Writer
+    - Compute Admin
+
+- Created dedicated **Model Registry Service Account**:
+  - Name: `model-registry-sa`
+  - Email: model-registry-sa@fashion-mnist-gcp.iam.gserviceaccount.com
+  - Assigned roles:
+    - Vertex AI Model Registry Admin
+    - Storage Object Admin
+    - Vertex AI Metadata Writer
+    - Secret Manager Secret Accessor
+
 ### Status Summary
 | Task | Status |
 |------|--------|
@@ -296,5 +319,6 @@ This deployment approach demonstrates adaptability in the face of infrastructure
 | Model Registry | ✅ |
 | Experiment Tracking | ✅ |
 | Experiment Analysis | ✅ |
+| Service Account Configuration | ✅ |
 
 Phase 3 (Part 2) is now complete with the successful implementation of a containerized training architecture for the Fashion MNIST classification model and model deployment in Vertex AI. While the execution environment was adapted due to quota constraints, all architectural components and implementation patterns follow professional ML engineering practices, including proper experiment tracking and analysis. The project is ready to proceed to the next steps of model evaluation and comprehensive monitoring, with a focus on addressing the generalization issues identified in this phase.

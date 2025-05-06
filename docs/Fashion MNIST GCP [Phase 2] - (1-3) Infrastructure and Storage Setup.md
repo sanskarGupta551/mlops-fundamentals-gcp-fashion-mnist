@@ -16,19 +16,32 @@ This document outlines the foundational infrastructure implementation for the Fa
   - Storage: 150 GB boot disk, 100 GB data disk (Balanced Persistent Disk)
   - Enabled Dataproc Serverless Interactive Sessions
   - Security features: Secure Boot, vTPM, Integrity monitoring
-- Created service account:
-  - Name: `workbench-gcp`
-  - Email: workbench-gcp@fashion-mnist-gcp.iam.gserviceaccount.com
-  - Assigned roles:
-    - Vertex AI User
-    - Notebooks Admin
-    - Storage Object Admin
-    - Storage Admin
-    - Artifact Registry Reader
-    - Artifact Registry Writer
-    - Cloud Functions Developer
-    - BigQuery Admin
-    - BigQuery Data Owner
+- Created service accounts:
+  - **Workbench Service Account**:
+    - Name: `workbench-gcp`
+    - Email: workbench-gcp@fashion-mnist-gcp.iam.gserviceaccount.com
+    - Assigned roles:
+      - Vertex AI User
+      - Notebooks Admin
+      - Storage Object Admin
+      - Storage Admin
+      - Artifact Registry Reader
+      - Artifact Registry Writer
+      - Cloud Functions Developer
+      - BigQuery Admin
+      - BigQuery Data Owner
+      - Dataproc Administrator
+      - Service Usage Admin
+  - **Data Engineering Service Account**:
+    - Name: `data-engineering-sa`
+    - Email: data-engineering-sa@fashion-mnist-gcp.iam.gserviceaccount.com
+    - Assigned roles:
+      - Storage Object Admin
+      - BigQuery Data Editor
+      - Vertex AI Feature Store Admin
+      - Dataflow Admin
+      - Vertex AI Dataset Admin
+      - Cloud KMS Encrypter/Decrypter
 
 #### 2. Cloud Storage Architecture
 - Established three-bucket architecture:
@@ -64,7 +77,7 @@ This document outlines the foundational infrastructure implementation for the Fa
 3. **Security Configuration**: 
    - Implemented uniform access control with public access prevention
    - Enabled secure boot, vTPM, and integrity monitoring
-   - Created dedicated service account with least privilege access
+   - Created dedicated service accounts with least privilege access
 
 4. **Storage Optimization**: Standard storage class for frequently accessed ML data with regional deployment
 

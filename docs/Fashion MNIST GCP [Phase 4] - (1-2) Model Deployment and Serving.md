@@ -106,6 +106,31 @@ This document details the implementation of the deployment and serving infrastru
 - Implemented appropriate security practices for ML model access
 - Maintained separation between model serving and API layers for security boundary
 
+### 7. Service Account Configuration
+
+- Created dedicated **Model Deployment Service Account**:
+  - Name: `model-deployment-sa`
+  - Email: model-deployment-sa@fashion-mnist-gcp.iam.gserviceaccount.com
+  - Assigned roles:
+    - Vertex AI Endpoint Creator
+    - Vertex AI Model User
+    - Cloud Run Admin
+    - Monitoring Admin 
+    - Compute Admin
+    - IAM Service Account User
+
+- Created dedicated **Prediction Service Account**:
+  - Name: `prediction-service-sa`
+  - Email: prediction-service-sa@fashion-mnist-gcp.iam.gserviceaccount.com
+  - Assigned roles:
+    - Vertex AI Prediction API access
+    - Logging Writer
+    - Monitoring Metric Writer
+    - Cloud Run Invoker
+    - Secret Manager Secret Accessor
+    - Error Reporting Writer
+    - Cloud Trace Agent
+
 ## Key Technical Decisions
 
 ### 1. Architecture Selection
@@ -153,6 +178,7 @@ This document details the implementation of the deployment and serving infrastru
 | Health Check Implementation | ✅ |
 | Service Testing | ✅ |
 | Documentation | ✅ |
+| Service Account Configuration | ✅ |
 | CI/CD Pipeline Integration | ⬜ |
 
 Phase 4 part 1 is now complete with the successful implementation of the Vertex AI endpoint, Cloud Run prediction service, and authenticated access configuration, providing a solid foundation for the prediction capabilities of the Fashion MNIST project.
