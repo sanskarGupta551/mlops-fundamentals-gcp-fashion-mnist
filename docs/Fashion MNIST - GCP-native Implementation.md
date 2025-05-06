@@ -46,12 +46,12 @@ This GCP-native approach serves as part of a larger portfolio project demonstrat
 ### Phase 4: Model Deployment & Serving
 | Task | Tool/Service | Status |
 |------|-------------|--------|
-| Deploy AutoML Model to Endpoint | Vertex AI Prediction | ⬜ |
-| Create Simple Prediction API | Cloud Run | ⬜ |
-| Set up GitHub Integration | GitHub + Cloud Build | ⬜ |
-| Configure Basic CI/CD Pipeline | Cloud Build | ⬜ |
-| Implement Core Monitoring | Cloud Monitoring | ⬜ |
-| Document Deployment Architecture | Markdown + Diagrams | ⬜ |
+| Deploy AutoML Model to Endpoint | Vertex AI Prediction | ✅ |
+| Create Simple Prediction API | Cloud Run, Docker, Flask | ✅ |
+| Set up GitHub Integration | GitHub + Cloud Build | ✅ |
+| Configure Basic CI/CD Pipeline | Cloud Build, Google Container Registry | ✅ |
+| Implement Core Monitoring | Cloud Monitoring, Cloud Logging, Uptime Checks | ✅ |
+| Document Deployment Architecture | Markdown + Diagrams | ✅ |
 
 ### Phase 5: Interactive Web Application
 | Task | Tool/Service | Status |
@@ -113,9 +113,6 @@ This GCP-native approach serves as part of a larger portfolio project demonstrat
 - **Security**: IAM, Secret Manager
 - **Development**: Vertex AI Workbench, GitHub, Terraform
 - **AI Components**: Vertex AI Agent Builder, Vector Search
-
-## Architecture Diagram
-See the accompanying architecture diagram for a visual representation of the system components and their interactions.
 
 ## Repository Structure
 ```
