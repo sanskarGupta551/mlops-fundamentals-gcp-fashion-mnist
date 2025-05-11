@@ -1,132 +1,125 @@
 # Fashion MNIST: GCP-native Implementation
 
 ## Overview
-This document outlines a professional ML Engineering implementation for the Fashion MNIST classification system using Google Cloud Platform (GCP) services. While Fashion MNIST is a well-understood dataset, this project deliberately focuses on demonstrating enterprise-grade ML engineering practices and comprehensive MLOps capabilities.
+This document outlines a professional ML Engineering implementation for the Fashion MNIST classification system using Google Cloud Platform (GCP) services. While Fashion MNIST is a well-understood dataset, this project deliberately focuses on demonstrating enterprise-grade ML engineering practices and comprehensive deployment capabilities.
 
-The implementation showcases proficiency across the complete ML lifecycle, emphasizing:
-- Production-ready architecture that scales beyond Fashion MNIST
-- MLOps best practices including feature management and model governance
-- Cost-effective utilization of GCP managed services
-- End-to-end ownership from data engineering to production monitoring
+The implementation showcases proficiency across the ML lifecycle from data to deployment, emphasizing:
+- Data engineering with proper preprocessing and feature management
+- Model development with both AutoML and custom approaches
+- Production-ready deployment architecture
+- Monitoring and CI/CD integration
 
-This GCP-native approach serves as part of a larger portfolio project demonstrating three implementation paradigms (Localized, GCP-Native, and Cloud Agnostic), highlighting technical versatility and professional ML engineering expertise.
+This GCP-native approach serves as a portfolio project demonstrating technical versatility and professional ML engineering expertise across the entire journey from data preparation to model deployment.
 
 ## Implementation Phases
 
 ### Phase 1: Project Creation and Basic Setup
 | Task | Tool/Service | Status |
 |------|-------------|--------|
-| Create GCP project and enable billing | GCP Console, Cloud Billing | ✅ |
-| Initialize repository with basic branch structure | GitHub | ✅ |
-| Configure basic cost monitoring thresholds | Budget Alerts | ✅ |
-| Establish initial README and project structure | Documentation | ✅ |
+| GCP Project Setup and Configuration | GCP Console, Cloud Billing | ✅ |
+| Source Control and Repository Management | GitHub | ✅ |
+| Resource Monitoring and Budgeting | Budget Alerts, Cloud Monitoring | ✅ |
+| Project Documentation Structure | Markdown, Project Wiki | ✅ |
 
 ### Phase 2: Data Engineering & Preparation
 | Task | Tool/Service | Status |
 |------|-------------|--------|
-| Ingest Raw Data for Vertex AI Datasets and Custom Jobs | Cloud Storage, TensorFlow | ✅ |
-| Create managed dataset using Vertex AI Datasets | Vertex AI Managed Datasets | ✅ |
-| In-depth Data Analysis on Raw Data | Vertex AI Workbench, Jupyter Notebooks | ✅ |
-| Validate Data Processing Techniques | Vertex AI Workbench, TensorFlow | ✅ |
-| Generate an on-the-fly Data Processing Pipeline | Python modules, Cloud Storage | ✅ |
-| Normalize and save Custom job Dataset | Cloud Storage, Python | ✅ |
-| Experiment with Feature Engineering | Vertex AI Feature Store, BigQuery | ✅ |
+| Dataset Acquisition and Storage | Cloud Storage, TensorFlow Datasets | ✅ |
+| Managed Dataset Creation | Vertex AI Datasets | ✅ |
+| Exploratory Data Analysis | Vertex AI Workbench, Jupyter, Pandas, Matplotlib | ✅ |
+| Data Preprocessing Pipeline | Python, TensorFlow, NumPy | ✅ |
+| Feature Engineering and Management | Vertex AI Feature Store, BigQuery | ✅ |
 
 ### Phase 3: Model Development & Training
 | Task | Tool/Service | Status |
 |------|-------------|--------|
-| Vertex AI AutoML Job (Baseline Model) | Vertex AI AutoML Vision | ✅ |
-| Vertex AI Custom Job | Vertex AI Training | ❌ (Quota limitations) |
-| Custom Job using Local Docker Container | Docker, TensorFlow-GPU | ✅ |
-| Version and store models | Vertex AI Model Registry | ✅ |
-| Track experiments and parameters | Vertex AI Experiments | ✅ |
-| Document model architecture and decisions | Model Cards, Cloud Storage | ✅ |
-| Technical Assessment and Personal Reflections |  | ✅ |
+| Baseline Model Development | Vertex AI AutoML Vision | ✅ |
+| Custom Model Implementation | TensorFlow, Keras, Docker | ✅ |
+| Experiment Tracking and Analysis | Vertex AI Experiments | ✅ |
+| Model Management and Versioning | Vertex AI Model Registry | ✅ |
+| Performance Evaluation | Confusion Matrix Analysis, Class-specific Metrics | ✅ |
 
 ### Phase 4: Model Deployment & Serving
 | Task | Tool/Service | Status |
 |------|-------------|--------|
-| Deploy AutoML Model to Endpoint | Vertex AI Prediction | ✅ |
-| Create Simple Prediction API | Cloud Run, Docker, Flask | ✅ |
-| Set up GitHub Integration | GitHub + Cloud Build | ✅ |
-| Configure Basic CI/CD Pipeline | Cloud Build, Google Container Registry | ✅ |
-| Implement Core Monitoring | Cloud Monitoring, Cloud Logging, Uptime Checks | ✅ |
-| Document Deployment Architecture | Markdown + Diagrams | ✅ |
-
-### Phase 5: Interactive Web Application
-| Task | Tool/Service | Status |
-|------|-------------|--------|
-| Create Static Web Frontend | Cloud Storage (static hosting) | ⬜ |
-| Implement Image Upload & Processing | JavaScript + Cloud Storage | ⬜ |
-| Connect Frontend to Prediction API | JavaScript Fetch API | ⬜ |
-| Add Basic Logging | Cloud Logging | ⬜ |
-| Implement Error Handling | Client & Server-side | ⬜ |
-| Document User Flow | Markdown + Screenshots | ⬜ |
-
-### Phase 6: MLOps & Continuous Delivery
-| Task | Tool/Service | Status |
-|------|-------------|--------|
-| Formalize Model Registry | Vertex AI Model Registry | ⬜ |
-| Implement Model Evaluation Workflow | Cloud Functions + Vertex AI | ⬜ |
-| Set up Scheduled Retraining | Cloud Scheduler + Vertex AI | ⬜ |
-| Add Health Checks & Alerting | Cloud Monitoring Alerts | ⬜ |
-| Create Model Cards | Vertex AI Model Registry | ⬜ |
-| Document Operations Procedures | Markdown + Diagrams | ⬜ |
-
-### Phase 7: Advanced MLOps Capabilities
-| Task | Tool/Service | Status |
-|------|-------------|--------|
-| Implement A/B Testing | Vertex AI Endpoints | ⬜ |
-| Set up Drift Detection | TensorFlow Data Validation + Cloud Functions | ⬜ |
-| Optimize Resource Usage | Rightsizing + Autoscaling | ⬜ |
-| Enhance Security | IAM + Secret Manager | ⬜ |
-| Create Comprehensive Documentation | Structured Markdown | ⬜ |
-| Develop Dashboard | Looker Studio | ⬜ |
-
-### Phase 8: Intelligent Documentation System
-| Task | Tool/Service | Status |
-|------|-------------|--------|
-| Data Collection & Organization | Python Scripts + Cloud Storage | ⬜ |
-| Sensitive Data Scanning & Redaction | Custom NER + Pattern Matching | ⬜ |
-| Vector Database Creation | Vertex AI Vector Search | ⬜ |
-| Agent Configuration | Vertex AI Agent Builder | ⬜ |
-| Web Interface Integration | JavaScript + HTML | ⬜ |
-| Documentation & Access Controls | Markdown + IAM | ⬜ |
+| Model Endpoint Deployment | Vertex AI Prediction | ✅ |
+| Prediction Service Implementation | Cloud Run, Flask, Docker | ✅ |
+| CI/CD Pipeline Configuration | Cloud Build, GitHub Integration | ✅ |
+| Monitoring and Logging Setup | Cloud Monitoring, Cloud Logging | ✅ |
+| Security and Access Management | IAM, Service Accounts | ✅ |
 
 ## Key Implementation Principles
 1. **Enterprise Architecture at Any Scale**: Demonstrating production-grade patterns that scale from Fashion MNIST to enterprise datasets
-2. **Cost Optimization**: Leveraging preemptible VMs and auto-scaling appropriately while monitoring costs
-3. **Security Best Practices**: Implementing IAM with least privilege principle and managing secrets securely
-4. **MLOps Automation**: Establishing CI/CD pipelines, infrastructure as code, and automated model deployment
-5. **Comprehensive Monitoring**: Implementing observability for model performance, drift detection, and resource usage
-6. **Model Governance**: Versioning models, tracking experiments, and maintaining model documentation
-7. **Feature Engineering**: Creating and storing reusable features in Vertex AI Feature Store
-8. **Infrastructure as Code**: Using Terraform for reproducible and maintainable infrastructure
-9. **Real-World Validation**: Testing the system with actual user interactions and collecting feedback
-10. **Documentation as Practice**: Maintaining API docs, architecture diagrams, and model cards throughout the lifecycle
+2. **Security Best Practices**: Implementing IAM with least privilege principle and managing secrets securely
+3. **Deployment Automation**: Establishing CI/CD pipelines for model deployment
+4. **Comprehensive Monitoring**: Implementing observability for model performance and resource usage
+5. **Model Governance**: Versioning models, tracking experiments, and maintaining model documentation
+6. **Feature Engineering**: Creating and storing reusable features in Vertex AI Feature Store
+7. **Documentation as Practice**: Maintaining API docs, architecture diagrams, and model cards throughout the lifecycle
+8. **Containerized Deployment**: Using Docker for consistent environment management
+9. **Experiment Tracking**: Maintaining comprehensive records of training runs and parameters
+10. **Modular Code Organization**: Structuring code with clear separation of concerns
 
 ## Service Summary
-- **Core ML Services**: Vertex AI suite (AutoML, Training, Experiments, Model Registry, Prediction, Feature Store)
-- **Data & Storage**: Cloud Storage, Vertex AI Managed Datasets
-- **Infrastructure**: Cloud Build, Cloud Run, Cloud Functions, Artifact Registry
-- **Monitoring**: Cloud Monitoring, Cloud Logging, Evidently AI
-- **Security**: IAM, Secret Manager
-- **Development**: Vertex AI Workbench, GitHub, Terraform
-- **AI Components**: Vertex AI Agent Builder, Vector Search
+- **Core ML Services**:
+  - Vertex AI AutoML (Baseline model training)
+  - Vertex AI Training (Custom model development)
+  - Vertex AI Experiments (Parameter and metric tracking)
+  - Vertex AI Model Registry (Model versioning)
+  - Vertex AI Prediction (Model serving)
+  - Vertex AI Feature Store (Feature management)
+  - Vertex AI Managed Datasets (Dataset organization)
+  - Vertex AI Workbench (Development environment)
+
+- **Data & Storage**:
+  - Cloud Storage (Data and artifact storage)
+  - BigQuery (Analytics and feature storage)
+
+- **Infrastructure & Deployment**:
+  - Cloud Build (CI/CD automation)
+  - Cloud Run (Prediction service hosting)
+  - Google Container Registry (Container management)
+
+- **Monitoring & Logging**:
+  - Cloud Monitoring (Resource and service monitoring)
+  - Cloud Logging (Centralized logging)
+
+- **Security**:
+  - IAM (Identity and Access Management)
+  - Secret Manager (Credential management)
+
+- **External Tools**:
+  - GitHub (Source code management)
+  - Docker (Containerization)
+  - TensorFlow (Deep learning framework)
+  - Python (Programming language)
+  - Flask (Web framework for API)
+  - Jupyter Notebooks (Interactive development)
+  - NumPy/Pandas (Data processing)
+  - Matplotlib/Seaborn (Visualization)
 
 ## Repository Structure
 ```
 fashion-mnist-gcp/
-├── infrastructure/          # Terraform configurations
-├── pipelines/              # ML pipelines and workflows
-├── services/               # Microservices code
-├── models/                 # Model training and evaluation
-├── monitoring/             # Monitoring and logging setup
-├── tests/                  # Testing suites
+├── artifacts/              # Model artifacts and analysis results
+│   ├── custom_model/       # Custom model artifacts
+│   ├── custom_training_logs/  # Training logs
+│   ├── experimentation_features/ # Feature exploration
+│   └── raw_data_analysis_results/ # Analysis outputs
+├── diagram/                # Architecture diagrams
 ├── docs/                   # Documentation
-├── dashboards/             # Looker and visualization
-├── web-interface/          # User-facing components
-└── agent/                  # AI Agent implementation
+├── notebook/               # Jupyter notebooks
+│   ├── a. Fashion MNIST - Ingest Raw Data.ipynb
+│   ├── b. Fashion MNIST - Raw Data Analsís.ipynb
+│   ├── c. Fashion MNIST - Data Processing.ipynb
+│   ├── d. Fashion MNIST - Data Normalization.ipynb
+│   ├── e. Fashion MNIST - Feature Engineering.ipynb
+│   └── f. Fashion MNIST - Custom Training Job.ipynb
+└── src/                    # Source code
+    ├── data_normalization/ # Data preprocessing
+    ├── experimentation/    # Experiment configurations
+    ├── fashion_mnist_custom_job/ # Model training
+    └── fashion_mnist_prediction_service/ # Prediction API
 ```
 
-This implementation provides a professional, production-ready ML system while maintaining appropriate complexity for the Fashion MNIST dataset. It demonstrates modern ML engineering practices without unnecessary over-engineering.
+This implementation provides a professional, production-ready ML system while maintaining appropriate complexity for the Fashion MNIST dataset. It demonstrates modern ML engineering practices from data preparation through deployment, with a focus on practical engineering skills that transfer to more complex ML problems.

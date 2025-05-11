@@ -325,6 +325,6 @@ The Phase 3 implementation successfully established both AutoML and custom model
 
 While the custom model achieved strong validation performance (~88%), its significantly lower test accuracy (45.57%) highlights a critical generalization challenge. This disparity represents a valuable learning opportunity and demonstrates the importance of thorough evaluation across multiple data splits.
 
-Despite quota limitations and performance challenges, the implementation showcases problem-solving skills essential for real-world ML projects. The established model registry and documented learnings provide a solid foundation for subsequent phases of the project, including evaluation, deployment, and monitoring, with a particular focus on addressing the identified generalization challenges.
+Despite quota limitations and performance challenges, the implementation showcases problem-solving skills essential for real-world ML projects. The established model registry and documented learnings provide a solid foundation for the deployment phase of the project, where we'll focus on operationalizing the model through endpoints, prediction services, and monitoring infrastructure.
 
-This custom training implementation completes the model development phase of the project, setting the stage for comprehensive model evaluation and deployment in the following phases. The infrastructure and registry patterns established here will enable effective MLOps practices throughout the model lifecycle.
+This custom training implementation completes the model development phase of the project, setting the stage for model deployment in the final phase. The infrastructure and registry patterns established here will enable effective model serving in the deployment phase.
