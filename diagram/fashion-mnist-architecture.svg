@@ -1,110 +1,232 @@
-<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="1200" height="800" fill="#f8fafc"/>
-  
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .container {
+      fill: #f8f9fa;
+      stroke: #4285f4;
+      stroke-width: 2;
+      rx: 15;
+      ry: 15;
+    }
+    .box {
+      fill: white;
+      stroke: #4285f4;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+    }
+    .data-container {
+      fill: #e8f0fe;
+      stroke: #4285f4;
+      stroke-width: 2;
+      rx: 15;
+      ry: 15;
+    }
+    .model-container {
+      fill: #e6f4ea;
+      stroke: #34a853;
+      stroke-width: 2;
+      rx: 15;
+      ry: 15;
+    }
+    .serving-container {
+      fill: #fce8e6;
+      stroke: #ea4335;
+      stroke-width: 2;
+      rx: 15;
+      ry: 15;
+    }
+    .cicd-container {
+      fill: #fff8e1;
+      stroke: #fbbc04;
+      stroke-width: 2;
+      rx: 15;
+      ry: 15;
+    }
+    .monitoring-container {
+      fill: #f3e8fd;
+      stroke: #a142f4;
+      stroke-width: 2;
+      rx: 15;
+      ry: 15;
+    }
+    .data-box {
+      fill: white;
+      stroke: #4285f4;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+    }
+    .model-box {
+      fill: white;
+      stroke: #34a853;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+    }
+    .serving-box {
+      fill: white;
+      stroke: #ea4335;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+    }
+    .cicd-box {
+      fill: white;
+      stroke: #fbbc04;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+    }
+    .monitoring-box {
+      fill: white;
+      stroke: #a142f4;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+    }
+    .title {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-anchor: middle;
+      fill: #4285f4;
+    }
+    .section-title {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .data-title {
+      fill: #4285f4;
+    }
+    .model-title {
+      fill: #34a853;
+    }
+    .serving-title {
+      fill: #ea4335;
+    }
+    .cicd-title {
+      fill: #fbbc04;
+    }
+    .monitoring-title {
+      fill: #a142f4;
+    }
+    .box-title {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      text-anchor: middle;
+      fill: #202124;
+    }
+    .arrow {
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    .blue-arrow {
+      stroke: #4285f4;
+    }
+    .green-arrow {
+      stroke: #34a853;
+    }
+    .yellow-arrow {
+      stroke: #fbbc04;
+    }
+    .purple-arrow {
+      stroke: #a142f4;
+    }
+  </style>
+
   <!-- Title -->
-  <text x="600" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#1a73e8">Fashion MNIST: GCP-native Architecture</text>
-  
+  <text x="600" y="50" class="title">Fashion MNIST: ML Engineering from Data to Deployment</text>
+
   <!-- Data Layer -->
-  <g transform="translate(50, 100)">
-    <rect x="0" y="0" width="300" height="600" rx="10" fill="#e8f0fe" stroke="#4285f4" stroke-width="2"/>
-    <text x="150" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#1a73e8">Data Layer</text>
-    
-    <rect x="30" y="60" width="240" height="60" rx="5" fill="#ffffff" stroke="#4285f4"/>
-    <text x="150" y="95" text-anchor="middle" font-family="Arial" font-size="14">Cloud Storage</text>
-    
-    <rect x="30" y="140" width="240" height="60" rx="5" fill="#ffffff" stroke="#4285f4"/>
-    <text x="150" y="175" text-anchor="middle" font-family="Arial" font-size="14">Vertex AI Managed Datasets</text>
-    
-    <rect x="30" y="220" width="240" height="60" rx="5" fill="#ffffff" stroke="#4285f4"/>
-    <text x="150" y="255" text-anchor="middle" font-family="Arial" font-size="14">Vertex AI Feature Store</text>
-  </g>
+  <rect x="80" y="120" width="320" height="320" class="data-container" />
+  <text x="240" y="150" class="section-title data-title">Data Layer</text>
   
-  <!-- Model Development Layer -->
-  <g transform="translate(400, 100)">
-    <rect x="0" y="0" width="350" height="300" rx="10" fill="#e6f4ea" stroke="#34a853" stroke-width="2"/>
-    <text x="175" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#137333">Model Development</text>
-    
-    <rect x="30" y="60" width="140" height="60" rx="5" fill="#ffffff" stroke="#34a853"/>
-    <text x="100" y="90" text-anchor="middle" font-family="Arial" font-size="14">Vertex AI</text>
-    <text x="100" y="105" text-anchor="middle" font-family="Arial" font-size="14">Workbench</text>
-    
-    <rect x="180" y="60" width="140" height="60" rx="5" fill="#ffffff" stroke="#34a853"/>
-    <text x="250" y="90" text-anchor="middle" font-family="Arial" font-size="14">AutoML</text>
-    <text x="250" y="105" text-anchor="middle" font-family="Arial" font-size="14">Vision</text>
-    
-    <rect x="30" y="140" width="140" height="60" rx="5" fill="#ffffff" stroke="#34a853"/>
-    <text x="100" y="170" text-anchor="middle" font-family="Arial" font-size="14">Vertex AI</text>
-    <text x="100" y="185" text-anchor="middle" font-family="Arial" font-size="14">Training</text>
-    
-    <rect x="180" y="140" width="140" height="60" rx="5" fill="#ffffff" stroke="#34a853"/>
-    <text x="250" y="170" text-anchor="middle" font-family="Arial" font-size="14">Vertex AI</text>
-    <text x="250" y="185" text-anchor="middle" font-family="Arial" font-size="14">Experiments</text>
-    
-    <rect x="105" y="220" width="140" height="60" rx="5" fill="#ffffff" stroke="#34a853"/>
-    <text x="175" y="250" text-anchor="middle" font-family="Arial" font-size="14">Model</text>
-    <text x="175" y="265" text-anchor="middle" font-family="Arial" font-size="14">Registry</text>
-  </g>
+  <rect x="120" y="180" width="240" height="60" class="data-box" />
+  <text x="240" y="215" class="box-title">Cloud Storage</text>
   
-  <!-- MLOps Layer -->
-  <g transform="translate(400, 450)">
-    <rect x="0" y="0" width="350" height="250" rx="10" fill="#fef7e0" stroke="#f9ab00" stroke-width="2"/>
-    <text x="175" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#b06000">MLOps and Automation</text>
-    
-    <rect x="30" y="60" width="140" height="60" rx="5" fill="#ffffff" stroke="#f9ab00"/>
-    <text x="100" y="95" text-anchor="middle" font-family="Arial" font-size="14">Cloud Build</text>
-    
-    <rect x="180" y="60" width="140" height="60" rx="5" fill="#ffffff" stroke="#f9ab00"/>
-    <text x="250" y="95" text-anchor="middle" font-family="Arial" font-size="14">Terraform</text>
-    
-    <rect x="30" y="140" width="140" height="60" rx="5" fill="#ffffff" stroke="#f9ab00"/>
-    <text x="100" y="175" text-anchor="middle" font-family="Arial" font-size="14">GitHub</text>
-    
-    <rect x="180" y="140" width="140" height="60" rx="5" fill="#ffffff" stroke="#f9ab00"/>
-    <text x="250" y="175" text-anchor="middle" font-family="Arial" font-size="14">Artifact Registry</text>
-  </g>
+  <rect x="120" y="260" width="240" height="60" class="data-box" />
+  <text x="240" y="295" class="box-title">Vertex AI Managed Datasets</text>
   
-  <!-- Production Layer -->
-  <g transform="translate(800, 100)">
-    <rect x="0" y="0" width="350" height="300" rx="10" fill="#fce8e6" stroke="#ea4335" stroke-width="2"/>
-    <text x="175" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#c5221f">Production Serving</text>
-    
-    <rect x="30" y="60" width="290" height="60" rx="5" fill="#ffffff" stroke="#ea4335"/>
-    <text x="175" y="95" text-anchor="middle" font-family="Arial" font-size="14">Vertex AI Prediction Endpoints</text>
-    
-    <rect x="30" y="140" width="140" height="60" rx="5" fill="#ffffff" stroke="#ea4335"/>
-    <text x="100" y="175" text-anchor="middle" font-family="Arial" font-size="14">Cloud Run</text>
-    
-    <rect x="180" y="140" width="140" height="60" rx="5" fill="#ffffff" stroke="#ea4335"/>
-    <text x="250" y="175" text-anchor="middle" font-family="Arial" font-size="14">Cloud Endpoints</text>
-    
-    <rect x="105" y="220" width="140" height="60" rx="5" fill="#ffffff" stroke="#ea4335"/>
-    <text x="175" y="255" text-anchor="middle" font-family="Arial" font-size="14">Firestore</text>
-  </g>
+  <rect x="120" y="340" width="240" height="60" class="data-box" />
+  <text x="240" y="375" class="box-title">Vertex AI Feature Store</text>
   
-  <!-- Monitoring Layer -->
-  <g transform="translate(800, 450)">
-    <rect x="0" y="0" width="350" height="250" rx="10" fill="#f3e8fd" stroke="#9334e6" stroke-width="2"/>
-    <text x="175" y="30" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#6200ea">Monitoring and Governance</text>
-    
-    <rect x="30" y="60" width="140" height="60" rx="5" fill="#ffffff" stroke="#9334e6"/>
-    <text x="100" y="95" text-anchor="middle" font-family="Arial" font-size="14">Cloud Monitoring</text>
-    
-    <rect x="180" y="60" width="140" height="60" rx="5" fill="#ffffff" stroke="#9334e6"/>
-    <text x="250" y="95" text-anchor="middle" font-family="Arial" font-size="14">Cloud Logging</text>
-    
-    <rect x="30" y="140" width="140" height="60" rx="5" fill="#ffffff" stroke="#9334e6"/>
-    <text x="100" y="175" text-anchor="middle" font-family="Arial" font-size="14">Evidently AI</text>
-    
-    <rect x="180" y="140" width="140" height="60" rx="5" fill="#ffffff" stroke="#9334e6"/>
-    <text x="250" y="175" text-anchor="middle" font-family="Arial" font-size="14">Model Cards</text>
-  </g>
+  <!-- Model Development -->
+  <rect x="480" y="120" width="320" height="320" class="model-container" />
+  <text x="640" y="150" class="section-title model-title">Model Development</text>
   
-  <!-- Connecting lines -->
-  <line x1="350" y1="250" x2="400" y2="250" stroke="#4285f4" stroke-width="2"/>
-  <line x1="350" y1="350" x2="400" y2="350" stroke="#4285f4" stroke-width="2"/>
-  <line x1="750" y1="250" x2="800" y2="250" stroke="#34a853" stroke-width="2"/>
-  <line x1="575" y1="450" x2="575" y2="400" stroke="#f9ab00" stroke-width="2"/>
-  <line x1="750" y1="575" x2="800" y2="575" stroke="#f9ab00" stroke-width="2"/>
-  <line x1="975" y1="400" x2="975" y2="450" stroke="#ea4335" stroke-width="2"/>
+  <rect x="520" y="180" width="110" height="60" class="model-box" />
+  <text x="575" y="215" class="box-title">Vertex AI Workbench</text>
+  
+  <rect x="650" y="180" width="110" height="60" class="model-box" />
+  <text x="705" y="215" class="box-title">AutoML Vision</text>
+  
+  <rect x="520" y="260" width="110" height="60" class="model-box" />
+  <text x="575" y="295" class="box-title">Vertex AI Training</text>
+  
+  <rect x="650" y="260" width="110" height="60" class="model-box" />
+  <text x="705" y="295" class="box-title">Vertex AI Experiments</text>
+  
+  <rect x="585" y="340" width="110" height="60" class="model-box" />
+  <text x="640" y="375" class="box-title">Model Registry</text>
+  
+  <!-- Production Serving -->
+  <rect x="880" y="120" width="320" height="320" class="serving-container" />
+  <text x="1040" y="150" class="section-title serving-title">Production Serving</text>
+  
+  <rect x="920" y="180" width="240" height="60" class="serving-box" />
+  <text x="1040" y="215" class="box-title">Vertex AI Prediction Endpoints</text>
+  
+  <rect x="920" y="260" width="110" height="60" class="serving-box" />
+  <text x="975" y="295" class="box-title">Cloud Run</text>
+  
+  <rect x="1050" y="260" width="110" height="60" class="serving-box" />
+  <text x="1105" y="295" class="box-title">Cloud Endpoints</text>
+  
+  <!-- CI/CD and Automation -->
+  <rect x="480" y="520" width="320" height="200" class="cicd-container" />
+  <text x="640" y="550" class="section-title cicd-title">CI/CD Automation</text>
+  
+  <rect x="520" y="580" width="110" height="60" class="cicd-box" />
+  <text x="575" y="615" class="box-title">Cloud Build</text>
+  
+  <rect x="650" y="580" width="110" height="60" class="cicd-box" />
+  <text x="705" y="615" class="box-title">Container Registry</text>
+  
+  <rect x="585" y="660" width="110" height="60" class="cicd-box" />
+  <text x="640" y="695" class="box-title">GitHub</text>
+  
+  <!-- Monitoring and Governance -->
+  <rect x="880" y="520" width="320" height="200" class="monitoring-container" />
+  <text x="1040" y="550" class="section-title monitoring-title">Monitoring and Governance</text>
+  
+  <rect x="920" y="580" width="110" height="60" class="monitoring-box" />
+  <text x="975" y="615" class="box-title">Cloud Monitoring</text>
+  
+  <rect x="1050" y="580" width="110" height="60" class="monitoring-box" />
+  <text x="1105" y="615" class="box-title">Cloud Logging</text>
+  
+  <rect x="985" y="660" width="110" height="60" class="monitoring-box" />
+  <text x="1040" y="695" class="box-title">Model Cards</text>
+  
+  <!-- Arrows connecting components -->
+  <!-- Data to Model -->
+  <path d="M400 280 L480 280" class="arrow blue-arrow" />
+  
+  <!-- Model to Serving -->
+  <path d="M800 280 L880 280" class="arrow green-arrow" />
+  
+  <!-- Model to CI/CD -->
+  <path d="M640 440 L640 520" class="arrow yellow-arrow" />
+  
+  <!-- CI/CD to Monitoring -->
+  <path d="M800 620 L880 620" class="arrow yellow-arrow" />
+  
+  <!-- Serving to Monitoring -->
+  <path d="M1040 440 L1040 520" class="arrow purple-arrow" />
+
 </svg>
