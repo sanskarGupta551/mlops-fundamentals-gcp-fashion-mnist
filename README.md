@@ -1,4 +1,4 @@
-# Fashion MNIST: ML Engineering from Data to Deployment
+# Fashion MNIST GCP: ML Engineering from Data to Deployment
 
 ## Project Executive Summary
 
