@@ -84,14 +84,13 @@ This portfolio project demonstrates comprehensive Professional ML Engineering ca
 
 ### External Tools & Technologies
 - GitHub (Version Control, Source Repository)
-- Docker (Containerization)
-- TensorFlow (Framework for Training Architecture)
+- Docker (Containerization for training architecture)
+- TensorFlow (Framework for cloud-native training architecture)
 - Python (Programming Language)
-- Flask (Web Framework for API)
-- Jupyter Notebooks (Interactive Development)
-- NumPy, Pandas (Data Processing)
-- Matplotlib, Seaborn (Visualization)
-- Scikit-learn (Machine Learning Utilities)
+- Jupyter Notebooks (Interactive development and analysis)
+- NumPy, Pandas (Data processing and analysis)
+- Matplotlib, Seaborn (Visualization and data analysis)
+- Scikit-learn (Machine learning utilities for data analysis)
 
 ## Deliverables
 
@@ -147,7 +146,6 @@ fashion-mnist-gcp/
 │   ├── c. Fashion MNIST - Data Processing.ipynb
 │   ├── d. Fashion MNIST - Data Normalization.ipynb
 │   ├── e. Fashion MNIST - Feature Engineering.ipynb
-│   └── f. Fashion MNIST - Custom Training Job.ipynb
 └── src/                    # Source code
     ├── data_normalization/ # Data preprocessing
     ├── experimentation/    # Experiment configurations
@@ -165,4 +163,4 @@ This project authentically demonstrates ML engineering in cloud environments, in
 
 ## Conclusion
 
-This Fashion MNIST project serves as a comprehensive demonstration of Professional ML Engineering capabilities, showcasing not just technical skills but also business acumen, architectural thinking, and operational excellence required for enterprise ML systems. The GCP-native implementation demonstrates strategic use of managed services for immediate business value while building sophisticated infrastructure for future scaling needs.w
+This Fashion MNIST project serves as a comprehensive demonstration of Professional ML Engineering capabilities, showcasing not just technical skills but also business acumen, architectural thinking, and operational excellence required for enterprise ML systems. The GCP-native implementation demonstrates strategic use of managed services for immediate business value while building sophisticated infrastructure for future scaling needs.
