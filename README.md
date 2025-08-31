@@ -20,7 +20,7 @@ This project was developed as a **hands-on exploration of cloud-native AI engine
 * **Programming & Frameworks**: Python, TensorFlow, Docker, Flask
 * **Cloud Services**:
 
-  * **Vertex AI** (Workbench, AutoML, Custom Training, Model Registry, Endpoints)
+  * **Vertex AI** (Workbench, Datasets, AutoML, Custom Training, Feature Store, Model Registry, Endpoints)
   * **Cloud Run** (serving Flask API)
   * **Cloud Functions** (automated preprocessing pipeline)
   * **Cloud Build** (CI/CD integration with GitHub for serving infrastructure)
