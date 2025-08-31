@@ -34,11 +34,10 @@ This GCP-native approach serves as a portfolio project demonstrating technical v
 | Task | Tool/Service | Status |
 |------|-------------|--------|
 | AutoML Production Model | Vertex AI AutoML Vision | ✅ (97.2% precision deployed) |
-| Cloud-Native Training Architecture | TensorFlow, Docker, Vertex AI Custom Training | ✅ (Ready for execution) |
+| Cloud-Native Training Architecture | TensorFlow, Docker, Vertex AI Custom Training | ✅ |
 | Experiment Tracking Infrastructure | Vertex AI Experiments | ✅ |
 | Model Management and Versioning | Vertex AI Model Registry | ✅ |
 | Production Performance Evaluation | Confusion Matrix Analysis, Class-specific Metrics | ✅ |
-| **Custom Training Execution** | **Vertex AI Custom Jobs** | **⬜ (Pending quota increase)** |
 
 ### Phase 4: Model Deployment & Serving
 | Task | Tool/Service | Status |
